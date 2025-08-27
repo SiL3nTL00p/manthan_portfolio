@@ -86,7 +86,7 @@ function MenuBarUse() {
 
   return (
     <div className="relative top-50 left-0 flex items-end justify-end z-50 scale-110 ">
-      <audio ref={audioRef} src="../../assets/audio/mixkit-fast-double-click-on-mouse-275.wav" preload="auto" />
+      <audio ref={audioRef} src="/public/audio/mixkit-fast-double-click-on-mouse-275.wav" preload="auto" />
       <MenuBar items={menuItems} />
     </div>
   )

@@ -28,7 +28,7 @@ function App() {
           {/* Profile */}
           <div className="mb-6 flex items-center justify-self-start scale-110">
             <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gray-800">
-              <img src="src/assets/images/profile.jpg" alt="@manthan" className="h-full w-full object-cover" />
+              <img src="/public/profile.JPG" alt="@manthan" className="h-full w-full object-cover" />
             </div>
             <div>
               <div className="font-bold text-white">SiL3nTL00p</div>

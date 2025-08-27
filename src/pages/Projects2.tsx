@@ -49,7 +49,7 @@ const ProjectsGrid: React.FC = () => {
           href=""
           title="RESUME RATER"
           category="AI MODEL"
-          imageSrc="src/assets/images/aic.png"
+          imageSrc="@/assets/images/aic.png"
           imageAlt="resume rater"
         />
 
@@ -57,7 +57,7 @@ const ProjectsGrid: React.FC = () => {
           href="https://github.com/SiL3nTL00p/WiDS-Neural-Voyage"
           title="WiDS'24"
           category="PRODUCTIVITY"
-          imageSrc="src/assets/images/wids.png"
+          imageSrc="@/assets/images/wids.png"
           imageAlt="wids"
         />
 
@@ -65,7 +65,7 @@ const ProjectsGrid: React.FC = () => {
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/FinSearch_25"
           title="FinSearch'25"
           category="Mentored Research Project"
-          imageSrc="src/assets/images/finsearch.png"
+          imageSrc="@/assets/images/finsearch.png"
           imageAlt="finsearch"
         />
 
@@ -73,7 +73,7 @@ const ProjectsGrid: React.FC = () => {
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOS_25"
           title="Generative and Agentic Ai (SOS'25)"
           category="Investigative Study Project"
-          imageSrc="src/assets/images/SOS.png"
+          imageSrc="@/assets/images/SOS.png"
           imageAlt="sos"
         />
         
@@ -81,7 +81,7 @@ const ProjectsGrid: React.FC = () => {
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOC_25"
           title="Probabilistic Modelling (SOS'25)"
           category="Model Building"
-          imageSrc="src/assets/images/soc.jpeg"
+          imageSrc="@/assets/images/soc.jpeg"
           imageAlt="soc"
         />
 
@@ -89,7 +89,7 @@ const ProjectsGrid: React.FC = () => {
           href="https://github.com/SiL3nTL00p/currency_converter"
           title="Currency Converter(Vitta Exchange)"
           category="Consumer Product"
-          imageSrc="src/assets/images/cc.png"
+          imageSrc="@/assets/images/cc.png"
           imageAlt="currency converter"
         />
 
