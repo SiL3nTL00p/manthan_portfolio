@@ -26,7 +26,7 @@ function App() {
         <section className="w-full max-w-md bg-transparent">
           
           {/* Profile */}
-          <div className="mb-6 flex items-center justify-self-start scale-110">
+          <div className="mb-6 flex items-center justify-self-start scale-100">
             <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gray-800">
               <img src="/profile.JPG" alt="@manthan" className="h-full w-full object-cover" />
             </div>
