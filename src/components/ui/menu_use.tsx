@@ -4,18 +4,6 @@ import * as React from "react"
 
 function MenuBarUse() {
 
-   const audioRef = React.useRef<HTMLAudioElement | null>(null);
-
-  const playSound = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();          // pause any ongoing playback
-      audioRef.current.currentTime = 0;  // reset playback to start
-      audioRef.current.play().catch(() => { 
-        // Optional: handle play() promise rejection if autoplay blocked
-      });
-    }
-  };
-
   const menuItems = [
     {
       icon: (props: React.SVGProps<SVGSVGElement>) => (
@@ -23,7 +11,7 @@ function MenuBarUse() {
       ),
       label: "Home",
       onClick: () => {
-        playSound();
+        
         window.location.href = "/about"; // Navigate to /about
       }
 
@@ -34,7 +22,7 @@ function MenuBarUse() {
       ),
       label: "Projects",
       onClick: () => {
-        playSound();
+        
         window.location.href = "/projects"; // Navigate to /projects
       }
 
@@ -53,7 +41,7 @@ function MenuBarUse() {
       ),
       label: "Creative Arsenal",
       onClick: () => {
-        playSound();
+       
         window.location.href = "/projects"; // Navigate to /projects
       }
     },
@@ -63,7 +51,7 @@ function MenuBarUse() {
       ),
       label: "Resume (CV)",
       onClick: () => {
-        playSound();
+        
         window.location.href = "https://drive.google.com/file/d/19sQfMFd92tuiZUd6nFcH_nXrwmrMv_2b/view?usp=drive_link"; // Navigate to /projects
       }
       
@@ -86,7 +74,7 @@ function MenuBarUse() {
 
   return (
     <div className="relative top-50 left-0 flex items-end justify-end z-50 scale-110 ">
-      <audio ref={audioRef} src="/public/audio/mixkit-fast-double-click-on-mouse-275.wav" preload="auto" />
+      
       <MenuBar items={menuItems} />
     </div>
   )
