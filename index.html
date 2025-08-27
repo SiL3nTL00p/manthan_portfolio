@@ -5,14 +5,24 @@
     <link rel="icon" type="image/svg+xml" href="/public/@tiaorochi.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manthan - AI/ML Researcher</title>
+    <style>
+      /* 👇 ensure background is always black */
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000; /* black background */
+        color: #fff; /* optional: default text white for visibility */
+      }
+    </style>
   </head>
   <body>
-      <div id = "spinner" class = "container">
-          <div class = "loading"></div>
-      </div>
+    <div id="spinner" class="container">
+      <div class="loading"></div>
+    </div>
     <div id="root">
-      <div id = "spinner" class = "container">
-          <div class = "loading"></div>
+      <div id="spinner" class="container">
+        <div class="loading"></div>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
