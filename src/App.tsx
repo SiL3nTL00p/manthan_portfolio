@@ -22,11 +22,11 @@ function App() {
       </div>
 
       {/* Main content */}
-      <main className="flex flex-1 items-center justify-center px-4 pt-5 relative z-10 scale-125">
+      <main className="flex flex-1 items-center justify-center px-4 pt-5 relative z-10 scale-105">
         <section className="w-full max-w-md bg-transparent">
           
           {/* Profile */}
-          <div className="mb-6 flex items-center justify-self-start scale-100">
+          <div className="mb-6 flex items-center justify-self-start scale-110">
             <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gray-800">
               <img src="/profile.JPG" alt="@manthan" className="h-full w-full object-cover" />
             </div>
