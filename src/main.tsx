@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MenuBarUse } from "@/components/ui/menu_use";
 import { CommitsGridDemo } from "./pages/Welcome";
 import { ProjectsGrid } from "@/pages/Projects2.tsx";
+import { Creative } from "@/pages/creative";
 
 function Loading() {
   const [dotCount, setDotCount] = useState(0);
@@ -58,7 +59,7 @@ function Root() {
             <Route path="/" element={<CommitsGridDemo />} />
             <Route path="/about" element={<App />} />
             <Route path="/projects" element={<ProjectsGrid />} />
-            <Route path="/creative" element={<ProjectsGrid />} />
+            <Route path="/creative" element={<Creative />} />
           </Routes>
         </main>
       </div>

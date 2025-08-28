@@ -42,7 +42,7 @@ function MenuBarUse() {
       label: "Creative Arsenal",
       onClick: () => {
        
-        window.location.href = "/projects"; // Navigate to /projects
+        window.location.href = "/creative"; // Navigate to /projects
       }
     },
     {
