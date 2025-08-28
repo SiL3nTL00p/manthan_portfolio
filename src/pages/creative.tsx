@@ -1,7 +1,7 @@
 
-const Creative = () => {
+function Creative() {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-100 z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-100 z-0">
       <span
         className="text-white text-xl font-mono select-none"
         style={{
