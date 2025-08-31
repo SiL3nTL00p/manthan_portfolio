@@ -54,7 +54,7 @@ function App() {
           {/* Links with tiny icons */}
 <div className="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-widest">
   <a
-    href="mailto:pattedamanthan@gmail.com?subject=Message from Website&body=Hey Sachin! I'm writing to you regarding..."
+    href="mailto:pattedamanthan@gmail.com?subject=Message from Website&body=Hey Manthan! I'm writing to you regarding..."
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center text-[#a09a95] hover:text-white transition-colors duration-350 ease-in-out"
