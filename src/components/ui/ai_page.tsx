@@ -292,9 +292,8 @@ export function AnimatedAIChat() {
     return (
         <div className="min-h-screen flex flex-col w-full items-center justify-center bg-transparent text-white p-6 relative overflow-hidden">
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-                <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full mix-blend-normal filter blur-[128px] animate-pulse" />
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full mix-blend-normal filter blur-[128px] animate-pulse delay-700" />
-                <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-fuchsia-500/10 rounded-full mix-blend-normal filter blur-[96px] animate-pulse delay-1000" />
+                
+                
             </div>
             <div className="w-full max-w-2xl mx-auto relative">
                 <motion.div 
@@ -310,7 +309,7 @@ export function AnimatedAIChat() {
                             transition={{ delay: 0.2, duration: 0.5 }}
                             className="inline-block"
                         >
-                            <h1 className="text-3xl font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/40 pb-1">
+                            <h1 className="text-3xl font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#a09a95] to-white/40 pb-1">
                                 How can I help today?
                             </h1>
                             <motion.div 
@@ -386,7 +385,7 @@ export function AnimatedAIChat() {
                                 onKeyDown={handleKeyDown}
                                 onFocus={() => setInputFocused(true)}
                                 onBlur={() => setInputFocused(false)}
-                                placeholder="Ask zap a question..."
+                                placeholder="Ask tomo a question..."
                                 containerClassName="w-full"
                                 className={cn(
                                     "w-full px-4 py-3",
@@ -533,7 +532,7 @@ export function AnimatedAIChat() {
                     >
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-7 rounded-full bg-white/[0.05] flex items-center justify-center text-center">
-                                <span className="text-xs font-medium text-white/90 mb-0.5">zap</span>
+                                <span className="text-xs font-medium text-white/90 mb-0.5">tomo</span>
                             </div>
                             <div className="flex items-center gap-2 text-sm text-white/70">
                                 <span>Thinking</span>
