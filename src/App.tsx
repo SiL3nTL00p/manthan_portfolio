@@ -1,6 +1,5 @@
 "use client"
 
-import { BottomMenu } from "./components/ui/bottom_menu"
 import { Squares } from "./components/ui/background"
 
 
@@ -11,7 +10,7 @@ function App() {
     <div className="min-h-screen flex flex-col bg-[#0b0909] text-gray-200 scale-100 relative overflow-hidden">
 
       {/* Background squares - behind */}
-      <div className="absolute inset-0 -z-10 rounded-lg overflow-hidden bg-[#060606]">
+      <div className="absolute inset-0 -z-5 rounded-lg overflow-hidden bg-[#060606]">
         <Squares
           direction="diagonal"
           speed={0.5}
@@ -97,9 +96,6 @@ function App() {
           
         </section>
       </main>
-
-      {/* Bottom Menu */}
-      <BottomMenu />
     </div>
   )
 
