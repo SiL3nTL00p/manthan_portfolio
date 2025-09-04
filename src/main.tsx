@@ -10,6 +10,16 @@ import { Creative } from "@/pages/creative";
 import { AIBar } from "./components/ui/ai_comp";
 import { AI } from "./pages/ai";
 
+// Silence non-critical console output in production (hosted) builds
+if (import.meta.env.PROD) {
+  const noop = () => {};
+  // Keep console.error so real errors are still visible
+  console.log = noop;
+  console.info = noop;
+  console.debug = noop;
+  console.warn = noop;
+}
+
 function Loading() {
   const [dotCount, setDotCount] = useState(0);
 
