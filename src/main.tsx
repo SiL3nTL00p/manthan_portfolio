@@ -7,8 +7,8 @@ import { MenuBarUse } from "@/components/ui/menu_use";
 import { CommitsGridDemo } from "./pages/Welcome";
 import { ProjectsGrid } from "@/pages/Projects2.tsx";
 import { Creative } from "@/pages/creative";
-import { AIBar } from "./components/ui/ai_comp";
-import { AI } from "./pages/ai";
+
+
 
 // Silence non-critical console output in production (hosted) builds
 if (import.meta.env.PROD) {
@@ -63,7 +63,6 @@ function Root() {
     <BrowserRouter>
       <div className="cursor-default">
         <header className="fixed top-0 left-0 right-0 flex items-start justify-between h-10 pr-10 pt-10 pl-10 bg-black z-50 bg-opacity-0">
-          <AIBar/>
           <MenuBarUse />
         </header>
 
@@ -73,7 +72,7 @@ function Root() {
             <Route path="/about" element={<App />} />
             <Route path="/projects" element={<ProjectsGrid />} />
             <Route path="/creative" element={<Creative />} />
-            <Route path="/ai" element={<AI />} />
+            
           </Routes>
         </main>
       </div>

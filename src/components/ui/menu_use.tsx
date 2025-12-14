@@ -53,7 +53,7 @@ function MenuBarUse() {
       label: "Resume (CV)",
       onClick: () => {
         
-        window.location.href = "https://drive.google.com/drive/u/0/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?ths=true"; // Navigate to resume
+        window.location.href = "https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"; // Navigate to resume
       }
       
     },
