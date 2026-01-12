@@ -6,7 +6,7 @@ function About() {
 
     return (
         <div>
-        <main className="flex items-center justify-center bg-[#000000] text-white font-sfmono tracking-tight relative z-10 pt-10">
+        <main className="flex items-center justify-center bg-[#000000] text-white font-sfmonorelative z-10 pt-10">
 
             {/* Main Container - max-width constrained for readability */}
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 items-start px-5">
@@ -17,26 +17,26 @@ function About() {
                     {/* Header Profile Section */}
                     <div className="flex items-center gap-4">
                         <div>
-                            <h1 className="text-4xl font-bold tracking-tight text-white">SiL3nTL00p</h1>
-                            <p className="text text-gray-500 font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
+                            <h1 className="text-4xl font-bold font-sfmono tracking-tighter text-white">SiL3nTL00p</h1>
+                            <p className="text text-gray-500 tracking-tight font-sfmono font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
                         </div>
                     </div>
 
                     {/* Bio Text */}
-                    <div className="space-y-4 text-base text-[#a09a95] leading-relaxed">
-                        <p className="text-sm">
-                            Hi, I&apos;m <span className="text-[#ef6e3b] text-lg font-semibold">Manthan</span><br/>
+                    <div className="space-y-4 text-base text-[#a09a95] leading-relaxed font-sfpro">
+                        <p className="text-base leading-tighter font-semibold">
+                            Hi, I&apos;m <span className="text-[#ef6e3b] text-lg font-sfmono font-semibold">Manthan</span><br/>
                             I’m passionate about building intelligent systems and exploring how machine learning can solve real-world problems. 
                             I enjoy diving into the technical details, but my true passion lies in crafting simplicity. Always up for a conversation about design, AI, code, or anything tech-related—let’s make complex things effortlessly clear together.
                         </p>
 
 
-                        <div className="p-4 rounded-lg bg-white/5 border border-white/5">
-                            <p className="text-sm font-semibold text-gray-300 mb-2">My EXPERIENCE until now:</p>
-                            <ul className="space-y-1 text-sm list-disc list-inside text-[#a09a95]">
+                        <div className="p-4 rounded-lg bg-white/5 border font-sfpro font-bold text-base border-white/5">
+                            <p className=" text-lg font-bold font-sfmono tracking-tighter text-gray-300 mb-2">My <span className="text-lg font-sf font-bold text-base">Experience</span> </p>
+                            <ul className="space-y-1 list-disc text-sm list-inside text-[#a09a95]">
                                 <li>Research Intern</li>
-                                <li>Junior SWE <a href="https://ai.tech-iitb.org/" className="hover:text-white transition-colors duration-350 ease-in-out">@AiCommunity</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></li>
-                                <li>Graphic Designer <a href="" className="hover:text-white transition-colors duration-350 ease-in-out">@TechFest</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></li>
+                                <li>Junior SWE <a href="https://ai.tech-iitb.org/" className="font-sfmono tracking-tighter hover:text-white transition-colors duration-350 ease-in-out">@AiCommunity</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></li>
+                                <li>Graphic Designer <a href="" className="font-sfmono tracking-tighter hover:text-white transition-colors duration-350 ease-in-out">@TechFest</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></li>
                             </ul>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ function About() {
 
 
                 {/* RIGHT COLUMN: Contact Buttons (Spans 1 column) */}
-                <section className="flex flex-col items-center justify-center gap-4  md:mt-0 sticky top-10 ">
+                <section className="flex flex-col items-center justify-center gap-4 font-sfpro tracking-tighter  md:mt-0 sticky top-10 ">
 
                     <div className="mt-8 flex flex-col gap-y-2 text-sm tracking-widest">
                         <h2 className="text-white  font-semibold">CONNECT</h2>
@@ -89,15 +89,6 @@ function About() {
                             className="flex items-center text-[#a09a95] hover:text-white transition-colors duration-350 ease-in-out"
                         >
                             TECH RESUME
-                        </a>
-
-                        <a
-                            href="https://www.instagram.com/manthan_spryzen/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center text-[#a09a95] hover:text-white transition-colors duration-350 ease-in-out"
-                        >
-                            NON-TECH RESUME
                         </a>
 
                         <h2 className="text-sm uppercase  mt-5 text-white font-semibold hover:text-[#a09a95] transition-colors duration-350 ease-in-out"><span className="underline decoration-[#a09a95]">Blogs</span><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></h2>
