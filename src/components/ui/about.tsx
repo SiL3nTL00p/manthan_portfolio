@@ -35,8 +35,8 @@ function About() {
                     {/* Header Profile Section */}
                     <div className="md:col-span-1 flex items-center gap-4">
                         <div>
-                            <h1 className="text-4xl font-bold font-sfmono tracking-tighter text-white">SiL3nTL00p</h1>
-                            <p className="text text-gray-500 tracking-tight font-sfmono font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
+                            <h1 className="text-2xl font-bold font-sfmono tracking-tighter text-white">SiL3nTL00p</h1>
+                            <p className="text-sm text-gray-500 tracking-tight font-sfmono font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
                         </div>
                     </div>
 
