@@ -43,7 +43,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
 const ProjectsGrid: React.FC = () => {
   return (
-    <div className="min-h-screen w-full bg-black py-2 px-10">
+    
+    <div className="min-h-screen w-full bg-black py-10 px-10">
+
       <div className="columns-1 sm:columns-2 md:columns-3 gap-2">
         <ProjectCard
           href=""
