@@ -5,10 +5,11 @@ function About() {
 
 
     return (
-        <main className="flex items-center justify-center bg-[#0a0a0a] text-white font-sfmono tracking-tight relative z-10 pt-10">
+        <div>
+        <main className="flex items-center justify-center bg-[#000000] text-white font-sfmono tracking-tight relative z-10 pt-10">
 
             {/* Main Container - max-width constrained for readability */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 items-start px-10">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 items-start px-5">
 
                 {/* LEFT COLUMN: Bio and Description (Spans 2 columns on large screens) */}
                 <section className="md:col-span-2 space-y-3">
@@ -17,7 +18,7 @@ function About() {
                     <div className="flex items-center gap-4">
                         <div>
                             <h1 className="text-2xl font-bold tracking-tight text-white">SiL3nTL00p</h1>
-                            <p className="text-sm text-gray-500 font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bomaby</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
+                            <p className="text-sm text-gray-500 font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
                         </div>
                     </div>
 
@@ -99,13 +100,18 @@ function About() {
                             NON-TECH RESUME
                         </a>
 
-                        <h2 className="text-xs uppercase  mt-5 text-white font-semibold"><span className="underline decoration-[#a09a95]">Blogs</span><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></h2>
+                        <h2 className="text-xs uppercase  mt-5 text-white font-semibold hover:text-[#a09a95] transition-colors duration-350 ease-in-out"><span className="underline decoration-[#a09a95]">Blogs</span><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></h2>
 
                     </div>
 
                 </section>
             </div>
         </main>
+
+        
+        </div>
+
+       
     )
 }
 
