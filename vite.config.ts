@@ -30,6 +30,6 @@ export default defineConfig({
     // (warnings still logged, but won’t block Vercel build)
     minify: "esbuild",
   },
-  // Suppress terminal warnings if needed
-  logLevel: "error", // "info" | "warn" | "error" | "silent"
+  // Show the dev server URL in the terminal
+  logLevel: "info", // "info" | "warn" | "error" | "silent"
 });

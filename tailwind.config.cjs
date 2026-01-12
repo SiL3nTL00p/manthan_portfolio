@@ -21,7 +21,10 @@ module.exports = {
         highlight: "highlight 0.6s ease forwards",
         flash: "flash 0.6s ease forwards",
       },
-  
+      fontFamily: {
+        sfmono: ["SF Mono", "Space Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", 'monospace'],
+      },
+
     }
   }, // Added missing closing brace and comma
   plugins: [

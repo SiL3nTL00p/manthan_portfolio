@@ -5,8 +5,6 @@ import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MenuBarUse } from "@/components/ui/menu_use";
 import { CommitsGridDemo } from "./pages/Welcome";
-import { ProjectsGrid } from "@/pages/Projects2.tsx";
-import { Creative } from "@/pages/creative";
 
 
 
@@ -70,8 +68,6 @@ function Root() {
           <Routes>
             <Route path="/" element={<CommitsGridDemo />} />
             <Route path="/about" element={<App />} />
-            <Route path="/projects" element={<ProjectsGrid />} />
-            <Route path="/creative" element={<Creative />} />
             
           </Routes>
         </main>

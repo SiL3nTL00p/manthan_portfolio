@@ -16,35 +16,6 @@ function MenuBarUse() {
       }
 
     },
-    {
-      icon: (props: React.SVGProps<SVGSVGElement>) => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" {...props} ><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>
-      ),
-      label: "Projects",
-      onClick: () => {
-        
-        window.location.href = "/projects"; // Navigate to /projects
-      }
-
-    },
-    {
-      icon: (props: React.SVGProps<SVGSVGElement>) => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" {...props}>
-          <title>hashtag</title>
-          <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" stroke="currentColor">
-            <line x1="3.75" y1="6.25" x2="15.25" y2="6.25" />
-            <line x1="2.75" y1="11.75" x2="14.25" y2="11.75" />
-            <line x1="7.633" y1="2.75" x2="5.289" y2="15.25" />
-            <line x1="12.711" y1="2.75" x2="10.367" y2="15.25" />
-          </g>
-        </svg>
-      ),
-      label: "Creative Arsenal",
-      onClick: () => {
-       
-        window.location.href = "/creative"; // Navigate to /projects
-      }
-    },
 
     {
       icon: (props: React.SVGProps<SVGSVGElement>) => (
@@ -56,20 +27,6 @@ function MenuBarUse() {
         window.location.href = "https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"; // Navigate to resume
       }
       
-    },
-    {
-      icon: (props: React.SVGProps<SVGSVGElement>) => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" {...props}>
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2"></path><path d="M12 20v2"></path>
-          <path d="m4.93 4.93 1.41 1.41"></path>
-          <path d="m17.66 17.66 1.41 1.41"></path>
-          <path d="M2 12h2"></path><path d="M20 12h2"></path>
-          <path d="m6.34 17.66-1.41 1.41"></path>
-          <path d="m19.07 4.93-1.41 1.41"></path>
-        </svg>
-      ),
-      label: "Locked"
     },
   ]
 
