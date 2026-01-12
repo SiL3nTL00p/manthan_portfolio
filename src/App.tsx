@@ -3,6 +3,7 @@
 
 import { ProjectsGrid } from "./components/ui/Projects2"
 import { About } from "./components/ui/about"
+import { CommitsGrid } from "@/components/ui/github.tsx"
 
 function App() {
 
@@ -10,6 +11,10 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0b0909] text-gray-200 scale-100 relative overflow-hidden">
 
+      <div className="flex items-center justify-center h-screen bg-black">
+        <CommitsGrid text="Welcome" />
+      </div>
+      
       {/* About section */}
       <div className="z-15"> 
         <About/>
@@ -26,7 +31,7 @@ function App() {
             <section className="w-full grid grid-cols-12 grid-gap relative z-10 max-w-8xl pb-4 pt-4 px-4 gap-y-8">
                 <div className="flex-col align-center space-y-2 col-start-1 col-end-13 caption md:col-start-1 md:col-end-6">
                     <span className="flex flex-row space-x-2 align-middle">
-                        <p className="self-center px-2 pt-1 pb-[2px] mono uppercase text-zinc-600">Last updated 2025-12-31</p>
+                        <p className=" text-sm self-center px-2 pt-1 pb-[2px] mono uppercase text-zinc-600">Last updated 12/01/2026</p>
                     </span>
                 </div>
             </section>

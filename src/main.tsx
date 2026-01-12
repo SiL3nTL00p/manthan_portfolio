@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CommitsGridDemo } from "./pages/Welcome";
 
 
 
@@ -62,8 +61,7 @@ function Root() {
 
         <main>
           <Routes>
-            <Route path="/" element={<CommitsGridDemo />} />
-            <Route path="/about" element={<App />} />
+            <Route path="/" element={<App />} />
             
           </Routes>
         </main>

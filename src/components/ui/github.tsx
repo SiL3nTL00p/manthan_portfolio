@@ -1,5 +1,130 @@
+"use client";
+
+import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import type { Transition } from "framer-motion";
 import type { CSSProperties } from "react";
+
+// --- 1. MenuBar Component (Fixed size constraints) ---
+
+export interface MenuBarItem {
+  icon: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element;
+  label: string;
+  onClick?: () => void;
+}
+
+interface MenuBarProps extends React.HTMLAttributes<HTMLDivElement> {
+  items: MenuBarItem[];
+}
+
+const springConfig: Transition = {
+  type: "tween",
+  duration: 0.3,
+  ease: "easeInOut",
+};
+
+export function MenuBar({ items, className, ...props }: MenuBarProps) {
+  const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
+  const menuRef = React.useRef<HTMLDivElement>(null);
+  // Default to centering if measurement fails
+  const [tooltipX, setTooltipX] = React.useState<number>(0);
+  const tooltipRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (activeIndex !== null && menuRef.current && tooltipRef.current) {
+      const menuItem = menuRef.current.children[activeIndex] as HTMLElement;
+      const menuRect = menuRef.current.getBoundingClientRect();
+      const itemRect = menuItem.getBoundingClientRect();
+      const tooltipRect = tooltipRef.current.getBoundingClientRect();
+
+      // Calculate center position relative to the menu container
+      // This allows the tooltip to be negative (stick out left) or > width (stick out right)
+      const left =
+        itemRect.left -
+        menuRect.left +
+        (itemRect.width - tooltipRect.width) / 2;
+
+      setTooltipX(left);
+    }
+  }, [activeIndex]);
+
+  return (
+    <div className={cn("relative", className)} {...props}>
+      <AnimatePresence>
+        {activeIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 5 }}
+            transition={springConfig}
+            className="absolute left-0 top-[-40px] pointer-events-none z-50 whitespace-nowrap"
+          >
+            <motion.div
+              ref={tooltipRef}
+              className={cn(
+                "h-8 px-4 rounded-lg flex justify-center items-center", // Removed overflow-hidden to prevent clipping
+                "bg-neutral-800/90 backdrop-blur",
+                "border border-white/20",
+                "shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+              )}
+              initial={{ x: tooltipX }}
+              animate={{ x: tooltipX }}
+              transition={springConfig}
+              style={{ width: "max-content" }} // Ensures width always fits the text
+            >
+              <p className="text-xs font-medium text-white">
+                {items[activeIndex].label}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div
+        ref={menuRef}
+        className={cn(
+          "h-12 px-2 inline-flex justify-center items-center gap-[3px] overflow-hidden z-10",
+          "rounded-full bg-[#0b0909] backdrop-blur",
+          "border border-white/20"
+        )}
+      >
+        {items.map((item, index) => (
+          <button
+            key={index}
+            className="w-8 h-8 rounded-full flex justify-center items-center hover:bg-white/10 transition-colors"
+            onMouseEnter={() => setActiveIndex(index)}
+            onMouseLeave={() => setActiveIndex(null)}
+            onClick={() => item.onClick?.()}
+          >
+            <item.icon className="w-5 h-5 text-[#bab5ae]" />
+            <span className="sr-only">{item.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// --- 2. Icons ---
+
+const ArrowDownIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M12 5v14" />
+    <path d="m19 12-7 7-7-7" />
+  </svg>
+);
+
+// --- 3. Main CommitsGrid Component ---
 
 export const CommitsGrid = ({ text }: { text: string }) => {
   const cleanString = (str: string): string => {
@@ -59,18 +184,22 @@ export const CommitsGrid = ({ text }: { text: string }) => {
   const getRandomDelay = () => `${(Math.random() * 0.6).toFixed(1)}s`;
   const getRandomFlash = () => +(Math.random() < 0.3);
 
-  return (
-    <div className="flex flex-col gap-2 w-full max-w-xl">
-      {/* GitHub Style Header with Button */}
-      <div className="flex justify-center w-full">
-        <a
-          href="/about"
-          className="bg-[#238636] hover:bg-[#2ea043] text-white font-semibold py-1 px-3 rounded-[6px] text-xs border border-[rgba(240,246,252,0.1)] shadow-sm transition-colors flex items-center gap-2 no-underline"
-        >
-          Explore
-        </a>
-      </div>
+  // Configuration for the MenuBar
+  const menuItems: MenuBarItem[] = [
+    {
+      icon: ArrowDownIcon,
+      label: "Scroll Down",
+      onClick: () => {
+        window.scrollBy({
+          top: window.innerHeight,
+          behavior: "smooth",
+        });
+      },
+    },
+  ];
 
+  return (
+    <div className="flex flex-col items-center gap-6 w-full max-w-xl">
       {/* The Grid */}
       <section
         className="w-full bg-card/70 border border-white/10 grid p-1.5 sm:p-3 gap-0.5 sm:gap-1 rounded-[10px] sm:rounded-[15px]"
@@ -104,6 +233,9 @@ export const CommitsGrid = ({ text }: { text: string }) => {
           );
         })}
       </section>
+
+      {/* Aesthetic Menu Bar Below Grid */}
+      <MenuBar items={menuItems} />
     </div>
   );
 };
