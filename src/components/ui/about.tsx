@@ -51,7 +51,7 @@ function About() {
 
                         <div className="p-4 rounded-lg bg-white/5 border font-sfpro font-bold text-base border-white/5">
                             <p className=" text-lg font-bold font-sfmono tracking-tighter text-gray-300 mb-2">My <span className="text-lg font-sf font-bold text-base">Experience</span> </p>
-                            <ul className="space-y-1 list-disc text-sm list-inside text-[#a09a95]">
+                            <ul className="space-y-1 list-disc font-sfmono tracking-tighter text-sm list-inside text-[#a09a95]">
                                 <li>Research Intern</li>
                                 <li>Junior SWE <a href="https://ai.tech-iitb.org/" className="font-sfmono tracking-tighter hover:text-white transition-colors duration-350 ease-in-out">@AiCommunity</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></li>
                                 <li>Graphic Designer <a href="" className="font-sfmono tracking-tighter hover:text-white transition-colors duration-350 ease-in-out">@TechFest</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></li>
