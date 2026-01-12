@@ -23,6 +23,7 @@ module.exports = {
       },
       fontFamily: {
         sfmono: ["SF Mono", "Space Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", 'monospace'],
+        helvetica: ['Helvetica', 'Arial', 'sans-serif'],
       },
 
     }

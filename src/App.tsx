@@ -9,7 +9,7 @@ function App() {
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0b0909] text-gray-200 scale-100 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-gray-200 scale-100 relative overflow-hidden">
 
       <div className="flex items-center justify-center h-screen bg-black">
         <CommitsGrid text="Welcome" />

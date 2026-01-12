@@ -17,15 +17,15 @@ function About() {
                     {/* Header Profile Section */}
                     <div className="flex items-center gap-4">
                         <div>
-                            <h1 className="text-2xl font-bold tracking-tight text-white">SiL3nTL00p</h1>
-                            <p className="text-sm text-gray-500 font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
+                            <h1 className="text-4xl font-bold tracking-tight text-white">SiL3nTL00p</h1>
+                            <p className="text text-gray-500 font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
                         </div>
                     </div>
 
                     {/* Bio Text */}
                     <div className="space-y-4 text-base text-[#a09a95] leading-relaxed">
                         <p className="text-sm">
-                            Hi, I&apos;m <span className="text-[#ef6e3b] font-semibold">Manthan</span><br/>
+                            Hi, I&apos;m <span className="text-[#ef6e3b] text-lg font-semibold">Manthan</span><br/>
                             I’m passionate about building intelligent systems and exploring how machine learning can solve real-world problems. 
                             I enjoy diving into the technical details, but my true passion lies in crafting simplicity. Always up for a conversation about design, AI, code, or anything tech-related—let’s make complex things effortlessly clear together.
                         </p>
@@ -46,8 +46,8 @@ function About() {
                 {/* RIGHT COLUMN: Contact Buttons (Spans 1 column) */}
                 <section className="flex flex-col items-center justify-center gap-4  md:mt-0 sticky top-10 ">
 
-                    <div className="mt-8 flex flex-col gap-y-2 text-xs tracking-widest">
-                        <h2 className="text-white font-semibold">CONNECT</h2>
+                    <div className="mt-8 flex flex-col gap-y-2 text-sm tracking-widest">
+                        <h2 className="text-white  font-semibold">CONNECT</h2>
                         <a
                             href="mailto:pattedamanthan@gmail.com?subject=Message from Website&body=Hey Manthan! I'm writing to you regarding..."
                             target="_blank"
@@ -80,7 +80,7 @@ function About() {
 
                     
 
-                        <h2 className="text-xs uppercase  mt-5 text-white font-semibold">Resume</h2>
+                        <h2 className="uppercase  mt-5 text-white font-semibold">Resume</h2>
 
                         <a
                             href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
@@ -100,7 +100,7 @@ function About() {
                             NON-TECH RESUME
                         </a>
 
-                        <h2 className="text-xs uppercase  mt-5 text-white font-semibold hover:text-[#a09a95] transition-colors duration-350 ease-in-out"><span className="underline decoration-[#a09a95]">Blogs</span><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></h2>
+                        <h2 className="text-sm uppercase  mt-5 text-white font-semibold hover:text-[#a09a95] transition-colors duration-350 ease-in-out"><span className="underline decoration-[#a09a95]">Blogs</span><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></h2>
 
                     </div>
 
