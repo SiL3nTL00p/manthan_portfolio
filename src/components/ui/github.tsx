@@ -1,5 +1,3 @@
-"use client" 
-
 import { cn } from "@/lib/utils";
 import type { CSSProperties } from "react";
 
@@ -20,10 +18,8 @@ export const CommitsGrid = ({ text }: { text: string }) => {
 
   const generateHighlightedCells = (text: string) => {
     const cleanedText = cleanString(text);
-
     const width = Math.max(cleanedText.length * 6, 6) + 1;
-
-    let currentPosition = 1; // we start at 1 to leave space for the top border
+    let currentPosition = 1;
     const highlightedCells: number[] = [];
 
     cleanedText
@@ -44,7 +40,7 @@ export const CommitsGrid = ({ text }: { text: string }) => {
     return {
       cells: highlightedCells,
       width,
-      height: 9, // 7+2 for the top and bottom borders
+      height: 9,
     };
   };
 
@@ -55,11 +51,7 @@ export const CommitsGrid = ({ text }: { text: string }) => {
   } = generateHighlightedCells(text);
 
   const getRandomColor = () => {
-    const commitColors = [
-      "#48d55d",
-      "#016d32",
-      "#0d4429"
-    ];
+    const commitColors = ["#48d55d", "#016d32", "#0d4429"];
     const randomIndex = Math.floor(Math.random() * commitColors.length);
     return commitColors[randomIndex];
   };
@@ -67,41 +59,53 @@ export const CommitsGrid = ({ text }: { text: string }) => {
   const getRandomDelay = () => `${(Math.random() * 0.6).toFixed(1)}s`;
   const getRandomFlash = () => +(Math.random() < 0.3);
 
-    return (
-  <section
-    className="w-full max-w-xl bg-card/70 border border-white/10 grid p-1.5 sm:p-3 gap-0.5 sm:gap-1 rounded-[10px] sm:rounded-[15px]"
-    style={{
-      gridTemplateColumns: `repeat(${gridWidth}, minmax(0, 1fr))`,
-      gridTemplateRows: `repeat(${gridHeight}, minmax(0, 1fr))`,
-    }}
-  >
-    {Array.from({ length: gridWidth * gridHeight }).map((_, index) => {
-      const isHighlighted = highlightedCells.includes(index);
-      const shouldFlash = !isHighlighted && getRandomFlash();
+  return (
+    <div className="flex flex-col gap-2 w-full max-w-xl">
+      {/* GitHub Style Header with Button */}
+      <div className="flex justify-center w-full">
+        <a
+          href="/about"
+          className="bg-[#238636] hover:bg-[#2ea043] text-white font-semibold py-1 px-3 rounded-[6px] text-xs border border-[rgba(240,246,252,0.1)] shadow-sm transition-colors flex items-center gap-2 no-underline"
+        >
+          Explore
+        </a>
+      </div>
 
-      return (
-        <div
-          key={index}
-          className={cn(
-            `h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
-            isHighlighted
-              ? "animate-highlight border-[0.5px] border-green-700/40"
-              : shouldFlash
-              ? "animate-flash bg-card"
-              : "bg-card border-transparent"
-          )}
-          style={
-            {
-              animationDelay: getRandomDelay(),
-              "--highlight": getRandomColor(),
-            } as CSSProperties
-          }
-        />
-      );
-    })}
-  </section>
+      {/* The Grid */}
+      <section
+        className="w-full bg-card/70 border border-white/10 grid p-1.5 sm:p-3 gap-0.5 sm:gap-1 rounded-[10px] sm:rounded-[15px]"
+        style={{
+          gridTemplateColumns: `repeat(${gridWidth}, minmax(0, 1fr))`,
+          gridTemplateRows: `repeat(${gridHeight}, minmax(0, 1fr))`,
+        }}
+      >
+        {Array.from({ length: gridWidth * gridHeight }).map((_, index) => {
+          const isHighlighted = highlightedCells.includes(index);
+          const shouldFlash = !isHighlighted && getRandomFlash();
+
+          return (
+            <div
+              key={index}
+              className={cn(
+                `h-full w-full aspect-square rounded-[4px] sm:rounded-[3px]`,
+                isHighlighted
+                  ? "animate-highlight border-[0.5px] border-green-700/40"
+                  : shouldFlash
+                  ? "animate-flash bg-card"
+                  : "bg-card border-transparent"
+              )}
+              style={
+                {
+                  animationDelay: getRandomDelay(),
+                  "--highlight": getRandomColor(),
+                } as CSSProperties
+              }
+            />
+          );
+        })}
+      </section>
+    </div>
   );
-  
 };
 
 const letterPatterns: { [key: string]: number[] } = {
