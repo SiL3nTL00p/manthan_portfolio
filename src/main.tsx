@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MenuBarUse } from "@/components/ui/menu_use";
+
 import { CommitsGridDemo } from "./pages/Welcome";
 
 
@@ -60,10 +60,6 @@ function Root() {
   return (
     <BrowserRouter>
       <div className="cursor-default top-5">
-        <header className="fixed top-0 left-0 right-10 bottom-0 flex-row-reverse h-10 pr-10 pt-10 pl-10 bg-black z-50 bg-opacity-0">
-          <MenuBarUse />
-        </header>
-
         <main>
           <Routes>
             <Route path="/" element={<CommitsGridDemo />} />
