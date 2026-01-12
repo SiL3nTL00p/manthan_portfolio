@@ -27,7 +27,7 @@ function About() {
         <main className="flex items-center justify-center bg-[#000000] text-white font-sfmono relative z-10 pt-10">
 
             {/* Main Container - max-width constrained for readability */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 items-start px-5">
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-2 items-start px-5">
 
                 {/* LEFT COLUMN: Bio and Description (Spans 2 columns on large screens) */}
                 <section className="md:col-span-2 space-y-3">
@@ -63,7 +63,7 @@ function About() {
 
                 {/* RIGHT COLUMN: Contact Buttons (Spans 1 column) */}
                 <section className="sticky top-10 mt-8 md:mt-0">
-                    <div className="grid grid-cols-2 gap-8 font-sfpro ">
+                    <div className="grid grid-cols-2 gap-4 font-sfpro ">
 
                     {/* COLUMN 1: CONNECT */}
                     <div className="flex flex-col items-center  gap-y-3">
