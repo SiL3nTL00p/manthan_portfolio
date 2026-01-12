@@ -87,7 +87,6 @@ function About() {
                             rel="noopener noreferrer"
                             className="flex items-center text-[#a09a95] hover:text-white transition-colors duration-350 ease-in-out"
                         >
-                            <svg className="w-3 h-3 mr-1 fill-current" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M349.33 69.33H162.67c-51.2 0-93.34 42.13-93.34 93.34v186.66c0 51.2 42.13 93.34 93.34 93.34h186.66c51.2 0 93.34-42.13 93.34-93.34V162.67c0-51.2-42.13-93.34-93.34-93.34zM464 256c0 57.41-46.6 104-104 104H152c-57.41 0-104-46.6-104-104V152c0-57.41 46.6-104 104-104h208c57.41 0 104 46.6 104 104zm-49.23-104.76a35.37 35.37 0 11-70.74 0 35.37 35.37 0 0170.74 0zM256 160a96 96 0 1096 96 96.11 96.11 0 00-96-96zm0 160a64 64 0 1164-64 64.06 64.06 0 01-64 64z" /></svg>
                             TECH RESUME
                         </a>
 
@@ -97,10 +96,10 @@ function About() {
                             rel="noopener noreferrer"
                             className="flex items-center text-[#a09a95] hover:text-white transition-colors duration-350 ease-in-out"
                         >
-                            <svg className="w-3 h-3 mr-1 fill-current" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M349.33 69.33H162.67c-51.2 0-93.34 42.13-93.34 93.34v186.66c0 51.2 42.13 93.34 93.34 93.34h186.66c51.2 0 93.34-42.13 93.34-93.34V162.67c0-51.2-42.13-93.34-93.34-93.34zM464 256c0 57.41-46.6 104-104 104H152c-57.41 0-104-46.6-104-104V152c0-57.41 46.6-104 104-104h208c57.41 0 104 46.6 104 104zm-49.23-104.76a35.37 35.37 0 11-70.74 0 35.37 35.37 0 0170.74 0zM256 160a96 96 0 1096 96 96.11 96.11 0 00-96-96zm0 160a64 64 0 1164-64 64.06 64.06 0 01-64 64z" /></svg>
                             NON-TECH RESUME
                         </a>
 
+                        <h2 className="text-xs uppercase  mt-5 text-white font-semibold"><span className="underline decoration-[#a09a95]">Blogs</span><sup className="font-sans leading-[0] text-[10px] font-light text-[#ef6e3b]">↗</sup></h2>
 
                     </div>
 
