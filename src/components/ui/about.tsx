@@ -24,7 +24,7 @@ function About() {
 
     return (
         <div>
-            <main className="flex items-center justify-center bg-[#111111] text-white font-sfmono relative z-10 pt-10">
+            <main className="flex items-center justify-center bg-[#0b0909] text-white font-sfmono relative z-10 pt-10">
 
                 {/* Main Container - max-width constrained for readability */}
                 <div className="w-full grid grid-cols-2 md:grid-cols-[1.1fr_1.1fr_1.1fr_1.1fr_0.9fr_0.9fr] gap-6 items-start px-5">
