@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Wrapper
       href={href}
-      className="group block mb-4 break-inside-avoid bg-[#0b0909]"
+      className="group/card block mb-4 break-inside-avoid bg-[#0b0909] transition-all duration-300 opacity-100 group-hover/grid:opacity-50 hover:!opacity-100 hover:scale-[1.02] hover:z-10 relative"
       {...(href ? { target: "_self", rel: "noopener noreferrer" } : {})}
       style={{
         fontFamily:
@@ -43,10 +43,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
 const ProjectsGrid: React.FC = () => {
   return (
-    
+
     <div className="min-h-screen w-full bg-black py-10 px-2">
 
-      <div className="columns-1 sm:columns-2 md:columns-3 gap-2">
+      <div className="columns-1 sm:columns-2 md:columns-3 gap-2 group/grid">
         <ProjectCard
           href=""
           title="RESUME RATER"
@@ -78,7 +78,7 @@ const ProjectsGrid: React.FC = () => {
           imageSrc="/SOS.png"
           imageAlt="sos"
         />
-        
+
         <ProjectCard
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOC_25"
           title="Probabilistic Modelling (SOS'25)"
