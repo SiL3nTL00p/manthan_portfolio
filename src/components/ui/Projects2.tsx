@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Wrapper
       href={href}
-      className="group/card block mb-4 break-inside-avoid bg-[#0b0909] transition-all duration-300 opacity-100 group-hover/grid:opacity-50 hover:!opacity-100 hover:scale-[1.02] hover:z-10 relative"
+      className="group/card block mb-4 break-inside-avoid bg-[#0b0909] transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-75 relative"
       {...(href ? { target: "_self", rel: "noopener noreferrer" } : {})}
       style={{
         fontFamily:
