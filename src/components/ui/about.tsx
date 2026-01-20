@@ -64,7 +64,7 @@ function About() {
                         <ul className="space-y-2 list-disc font-inter font-semibold text-sm leading-tight list-inside text-[#ffffff]">
                             <li>Research Intern</li>
                             <li>Junior SWE <a href="https://ai.tech-iitb.org/" className="font-inter tracking-normal hover:text-[#ef6e3b] hover:-translate-y-0.5 inline-block transition-all duration-300 ease-in-out">@AiCommunity</a><sup className="font-sans leading-[0] text-[9px] font-light text-[#ef6e3b]">↗</sup></li>
-                            <li>Graphic Designer <a href="" className="font-inter tracking-normal hover:text-[#ef6e3b] hover:-translate-y-0.5 inline-block transition-all duration-300 ease-in-out">@TechFest</a><sup className="font-sans leading-[0] text-[9px] font-light text-[#ef6e3b]">↗</sup></li>
+                            <li>Graphic Designer <a href="https://techfest.org/" className="font-inter tracking-normal hover:text-[#ef6e3b] hover:-translate-y-0.5 inline-block transition-all duration-300 ease-in-out">@TechFest</a><sup className="font-sans leading-[0] text-[9px] font-light text-[#ef6e3b]">↗</sup></li>
                         </ul>
                     </section>
 
