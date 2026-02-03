@@ -68,7 +68,7 @@ function About() {
                     </section>
 
                     {/* COLUMN 5: Connect Section */}
-                    <section className="col-span-2 md:col-span-1 space-y-3">
+                    <section className="col-span-1 space-y-3">
                         <h2 className="text-[#7a7770] text-sm font-sfmono tracking-[0.15em] uppercase mb-3 select-none font-normal">
                             Connect
                         </h2>
@@ -90,7 +90,7 @@ function About() {
                     </section>
 
                     {/* COLUMN 6: Links Section */}
-                    <section className="col-span-2 md:col-span-1 space-y-3">
+                    <section className="col-span-1 space-y-3">
                         <h2 className="text-[#7a7770] text-sm font-sfmono tracking-[0.15em] uppercase mb-3 select-none font-normal">
                             Links
                         </h2>

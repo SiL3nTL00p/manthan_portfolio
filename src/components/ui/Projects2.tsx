@@ -6,6 +6,7 @@ interface ProjectCardProps {
   category: string;
   imageSrc: string;
   imageAlt: string;
+  mediaType?: "image" | "video";
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -14,8 +15,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   category,
   imageSrc,
   imageAlt,
+  mediaType = "image",
 }) => {
   const Wrapper: React.ElementType = href ? "a" : "div";
+
+  // Determine media type from file extension if not explicitly provided
+  const isVideo = mediaType === "video" ||
+    imageSrc.endsWith('.mp4') ||
+    imageSrc.endsWith('.webm') ||
+    imageSrc.endsWith('.ogg') ||
+    imageSrc.endsWith('.mov');
+
   return (
     <Wrapper
       href={href}
@@ -27,11 +37,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       }}
     >
       <article>
-        <img
-          src={imageSrc}
-          alt={imageAlt}
-          className="w-full h-auto object-contain"
-        />
+        {isVideo ? (
+          <video
+            src={imageSrc}
+            className="w-full h-auto object-contain"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="w-full h-auto object-contain"
+          />
+        )}
       </article>
       <div className="pt-2 pb-3 px-3">
         <div className="font-semibold text-white text-base">{title}</div>
@@ -52,6 +73,7 @@ const ProjectsGrid: React.FC = () => {
           title="RESUME RATER"
           category="AI MODEL"
           imageSrc="/aic.png"
+          mediaType="image"
           imageAlt="resume rater"
         />
 
