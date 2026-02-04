@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Wrapper
       href={href}
-      className="group/card block mb-4 break-inside-avoid bg-[#0b0909] transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-75 relative px-0.5 py-0.5"
+      className="group/card block mb-4 break-inside-avoid bg-[#0b0909] transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-75 relative px-0.5 py-0.5 "
       {...(href ? { target: "_self", rel: "noopener noreferrer" } : {})}
       style={{
         fontFamily:
@@ -88,7 +88,7 @@ const ProjectsGrid: React.FC = () => {
         <ProjectCard
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/FinSearch_25"
           title="FinSearch'25"
-          category="Mentored Research Project"
+          category="MENTORED RESEARCH PROJECT"
           imageSrc="/finsearch.png"
           imageAlt="finsearch"
         />
@@ -96,7 +96,7 @@ const ProjectsGrid: React.FC = () => {
         <ProjectCard
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOS_25"
           title="Generative and Agentic Ai (SOS'25)"
-          category="Investigative Study Project"
+          category="INVESTIGATIVE STUDY PROJECT"
           imageSrc="/SOS.png"
           imageAlt="sos"
         />
@@ -104,7 +104,7 @@ const ProjectsGrid: React.FC = () => {
         <ProjectCard
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOC_25"
           title="Probabilistic Modelling (SOS'25)"
-          category="Model Building"
+          category="MODEL BUILDING PROJECT"
           imageSrc="/soc.jpeg"
           imageAlt="soc"
         />
@@ -112,7 +112,7 @@ const ProjectsGrid: React.FC = () => {
         <ProjectCard
           href="https://github.com/SiL3nTL00p/currency_converter"
           title="Currency Converter(Vitta Exchange)"
-          category="Consumer Product"
+          category="CONSUMER PRODUCT"
           imageSrc="/cc.png"
           imageAlt="currency converter"
         />

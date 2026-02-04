@@ -8,10 +8,10 @@ function ListItem({ href, text }: { href: string; text: string }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-start gap-0.5"
             >
-                <span className="text-sm font-medium text-[#ffffff] border-b border-dotted border-[#444] leading-tight  hover:text-[#ef6e3b] transition-all duration-300 ease-in-out font-inter">
+                <span className="text-[14px] font-inter text-[#ffffff] border-b-2 border-dotted border-[#444] leading-tight hover:text-[#fde047] hover:border-[#fde047] transition-all duration-300 ease-in-out" style={{ fontWeight: 400 }}>
                     {text}
                 </span>
-                <sup className="text-[10px] md:text-[9px] text-[#ef6e3b] opacity-100 duration-300">↗</sup>
+                <sup className="text-[10px] md:text-[10px] text-[#fde047] opacity-100 duration-300">↗</sup>
             </a>
         </li>
     );
@@ -22,33 +22,33 @@ function About() {
 
     return (
         <div>
-            <main className="flex items-center justify-center bg-[#0b0909] text-white font-sfmono relative z-10 pt-4">
+            <main className="flex items-center justify-center bg-[#0b0909] text-white font-sfmono relative z-10 pt-4 animate-in fade-in duration-1000">
 
                 {/* Main Container - max-width constrained for readability */}
-                <div className="w-full grid grid-cols-2 md:grid-cols-5 gap-8 items-start px-5">
+                <div className="w-full grid grid-cols-2 md:grid-cols-8 gap-y-8 md:gap-y-0 items-start px-5">
 
                     {/* Header Profile Section - spans all columns */}
-                    <div className="col-span-2 md:col-span-5">
+                    <div className="col-span-2 md:col-span-8 mb-4 animate-in fade-in duration-1000" style={{ animationDelay: '100ms' }}>
                         <div className="flex items-center justify-between gap-4 mb-2">
-                            <h1 className="text-lg md:text-xl font-bold font-sfmono tracking-tighter text-white">SiL3nTL00p</h1>
-                            <p className="text-xs md:text-sm text-gray-500 tracking-tight font-sfmono font-medium">Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[8px] md:text-[10px] font-light text-[#ef6e3b]">↗</sup></p>
+                            <h1 className="text-[18px] md:text-[20px] font-inter tracking-tight text-white" style={{ fontWeight: 700 }}>SiL3nTL00p</h1>
+                            <p className="text-[12px] md:text-[14px] text-gray-500 tracking-tight font-sfmono" style={{ fontWeight: 500 }}>Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[8px] md:text-[10px]" style={{ fontWeight: 300 }} >↗</sup></p>
                         </div>
 
                         {/* Separator Line - spans full width */}
                         <div className="w-full h-[0.5px] bg-gray-400/30 "></div>
                     </div>
 
-                    {/* COLUMN 1-2: About Section */}
-                    <section className="col-span-2 space-y-3 md">
+                    {/* COLUMN 1-3: About Section */}
+                    <section className="col-span-2 md:col-span-3 md:pr-8 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '200ms' }}>
                         {/* About Section Heading */}
-                        <h2 className="text-[#7a7770] text-sm font-sfmono tracking-[0.1em] uppercase select-none font-normal mb-3">
+                        <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.1em] uppercase select-none mb-3" style={{ fontWeight: 400 }}>
                             About
                         </h2>
 
                         {/* Bio Text */}
-                        <div className="space-y-4 text- leading-tight  font-inter font-medium text-[#ffffff]">
-                            <p className="text-sm leading-tight tracking-normal">
-                                Hi, I&apos;m <span className="text-[#ef6e3b] text-base font-semibold font-sfmono"> Manthan </span><br />
+                        <div className="space-y-4 font-inter leading-[-2.5] text-[#ffffff]" style={{ fontWeight: 410 }}>
+                            <p className="text-[14.25px]  tracking-normal">
+                                Hi, I&apos;m <span className="text-[#fde047] text-[18px] font-sfmono" style={{ fontWeight: 600 }}> Manthan </span><br />
                                 I synthesize machine learning theory with practical engineering, solving complex puzzles through the lens of a student-builder.
                                 I am driven by the quantification of reality, the ability to map physical phenomena into numerical dimensions and architect systems that transcend human cognitive limits.
                                 My portfolio tracks my evolution from first principles to deployed code, are you ready to explore the trajectory, huh ?
@@ -57,19 +57,19 @@ function About() {
                         </div>
                     </section>
 
-                    {/* COLUMN 3-4: Experience Section */}
-                    <section className="col-span-2 md:col-span-1 space-y-3">
-                        <h2 className="text-[#7a7770] text-sm font-sfmono tracking-[0.15em] uppercase mb-3 select-none font-normal">My Experience</h2>
-                        <ul className="space-y-2 list-disc font-inter font-medium text-sm leading-tight list-inside text-[#ffffff]">
+                    {/* COLUMN 5-6: Experience Section */}
+                    <section className="col-span-2 md:col-span-2 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '300ms' }}>
+                        <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.15em] uppercase mb-3 select-none" style={{ fontWeight: 400 }}>My Experience</h2>
+                        <ul className="space-y-2 list-disc font-inter text-[14px] leading-tight list-inside text-[#ffffff]" style={{ fontWeight: 400 }}>
                             <li>Research Intern</li>
-                            <li>Junior SWE <a href="https://ai.tech-iitb.org/" className="font-inter tracking-normal hover:text-[#ef6e3b]  inline-block transition-all duration-300 ease-in-out">@AiCommunity</a><sup className="font-sans leading-[0] text-[9px] font-light text-[#ef6e3b]">↗</sup></li>
-                            <li>Graphic Designer <a href="https://techfest.org/" className="font-inter tracking-normal hover:text-[#ef6e3b]  inline-block transition-all duration-300 ease-in-out">@TechFest</a><sup className="font-sans leading-[0] text-[9px] font-light text-[#ef6e3b]">↗</sup></li>
+                            <li>Junior SWE <a href="https://ai.tech-iitb.org/" className="font-inter tracking-normal border-b-2 border-dotted border-[#444] hover:text-[#fde047] hover:border-[#fde047] inline-block transition-all duration-300 ease-in-out">@AiCommunity</a><sup className="font-sans leading-[0] text-[9px] text-[#fde047]" style={{ fontWeight: 300 }}>↗</sup></li>
+                            <li>Graphic Designer <a href="https://techfest.org/" className="font-inter tracking-normal border-b-2 border-dotted border-[#444] hover:text-[#fde047] hover:border-[#fde047] inline-block transition-all duration-300 ease-in-out">@TechFest</a><sup className="font-sans leading-[0] text-[9px] text-[#fde047]" style={{ fontWeight: 300 }}>↗</sup></li>
                         </ul>
                     </section>
 
-                    {/* COLUMN 5: Connect Section */}
-                    <section className="col-span-1 space-y-3">
-                        <h2 className="text-[#7a7770] text-sm font-sfmono tracking-[0.15em] uppercase mb-3 select-none font-normal">
+                    {/* COLUMN 7: Connect Section */}
+                    <section className="col-span-1 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '400ms' }}>
+                        <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.15em] uppercase mb-3 select-none" style={{ fontWeight: 400 }}>
                             Connect
                         </h2>
 
@@ -89,9 +89,9 @@ function About() {
                         </ul>
                     </section>
 
-                    {/* COLUMN 6: Links Section */}
-                    <section className="col-span-1 space-y-3">
-                        <h2 className="text-[#7a7770] text-sm font-sfmono tracking-[0.15em] uppercase mb-3 select-none font-normal">
+                    {/* COLUMN 8: Links Section */}
+                    <section className="col-span-1 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '500ms' }}>
+                        <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.15em] uppercase mb-3 select-none" style={{ fontWeight: 400 }}>
                             Links
                         </h2>
 
@@ -101,7 +101,7 @@ function About() {
                                 text="Resume"
                             />
                             <ListItem
-                                href="/blogs"
+                                href="/blog"
                                 text="Blogs"
                             />
                         </ul>

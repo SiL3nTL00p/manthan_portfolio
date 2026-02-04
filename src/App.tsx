@@ -3,6 +3,7 @@
 
 import { ProjectsGrid } from "./components/ui/Projects2"
 import { About } from "./components/ui/about"
+import GithubContributions from "./components/ui/GithubContributions"
 
 function App() {
 
@@ -13,6 +14,11 @@ function App() {
       {/* About section */}
       <div className="z-15">
         <About />
+      </div>
+
+      {/* GitHub Contributions */}
+      <div className="z-15">
+        <GithubContributions />
       </div>
 
       {/* Projects */}
