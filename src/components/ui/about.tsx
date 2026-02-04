@@ -22,24 +22,24 @@ function About() {
 
     return (
         <div>
-            <main className="flex items-center justify-center bg-[#0b0909] text-white font-sfmono relative z-10 pt-4 animate-in fade-in duration-1000">
+            <main className="flex flex-col items-center justify-start bg-[#0b0909] text-white font-sfmono relative z-10 pt-4 animate-in fade-in duration-1000">
 
-                {/* Main Container - max-width constrained for readability */}
-                <div className="w-full grid grid-cols-2 md:grid-cols-12 gap-y-8 md:gap-x-4 md:gap-y-0 items-start px-5">
-
-                    {/* Header Profile Section - spans all columns */}
-                    <div className="col-span-2 md:col-span-12 mb-4 animate-in fade-in duration-1000" style={{ animationDelay: '100ms' }}>
-                        <div className="flex items-center justify-between gap-4 mb-2">
-                            <h1 className="text-[18px] md:text-[20px] tracking-tight text-white" style={{ fontFamily: '"Neue Haas Unica", "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"', fontWeight: 700 }}>SiL3nTL00p</h1>
-                            <p className="text-[12px] md:text-[14px] text-gray-500 tracking-tight font-sfmono" style={{ fontWeight: 500 }}>Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[8px] md:text-[10px]" style={{ fontWeight: 300 }} >↗</sup></p>
-                        </div>
-
-                        {/* Separator Line - spans full width */}
-                        <div className="w-full h-[0.5px] bg-gray-400/30 "></div>
+                {/* Fixed Header - Outside Grid */}
+                <div className="w-full mb-6 animate-in fade-in duration-1000 px-5" style={{ animationDelay: '100ms' }}>
+                    <div className="flex items-center w-full gap-4 mb-2">
+                        <h1 className="text-[18px] font-sfmono md:text-[20px] tracking-tight text-white flex-shrink-0 tracking-tighter" style={{ fontWeight: 700 }}>SiL3nTL00p</h1>
+                        <p className="text-[12px] md:text-[14px] text-gray-500 tracking-tight font-sfmono ml-auto text-right" style={{ fontWeight: 500 }}>Sophomore <a href="https://www.iitb.ac.in/" className="hover:text-white transition-colors duration-350 ease-in-out">@IIT Bombay</a><sup className="font-sans leading-[0] text-[8px] md:text-[10px]" style={{ fontWeight: 300 }} >↗</sup></p>
                     </div>
 
+                    {/* Separator Line - spans full width */}
+                    <div className="w-full h-[0.5px] bg-gray-400/30 "></div>
+                </div>
+
+                {/* Main Container - responsive layout */}
+                <div className="w-full grid grid-cols-2 md:grid-cols-12 gap-y-8 md:gap-x-4 md:gap-y-0 items-start px-5">
+
                     {/* COLUMN 1-5: About Section */}
-                    <section className="col-span-2 md:col-span-6 space-y-3 animate-in fade-in duration-1000\" style={{ gridColumn: '1 / 6', animationDelay: '200ms' }}>
+                    <section className="col-span-2 md:col-span-5 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '200ms' }}>
                         {/* About Section Heading */}
                         <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.1em] uppercase select-none mb-3" style={{ fontWeight: 400 }}>
                             About
@@ -57,8 +57,11 @@ function About() {
                         </div>
                     </section>
 
-                    {/* COLUMN 7-8: Experience Section */}
-                    <section className="col-span-2 md:col-span-2 space-y-3 animate-in fade-in duration-1000" style={{ gridColumn: '7 / 9', animationDelay: '300ms' }}>
+                    {/* COLUMN 7: Gap */}
+                    <div className="hidden md:block md:col-span-1"></div>
+
+                    {/* COLUMN 8-9: Experience Section */}
+                    <section className="col-span-2 md:col-span-2 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '300ms' }}>
                         <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.15em] uppercase mb-3 select-none" style={{ fontWeight: 400 }}>My Experience</h2>
                         <ul className="space-y-2 list-disc text-[14px] leading-tight list-inside text-[#ffffff]" style={{ fontFamily: '"Neue Haas Unica", "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"', fontWeight: 500 }}>
                             <li>Research Intern</li>
@@ -68,7 +71,7 @@ function About() {
                     </section>
 
                     {/* COLUMN 10: Connect Section */}
-                    <section className="col-span-1 md:col-span-1 space-y-3 animate-in fade-in duration-1000" style={{ gridColumn: '10 / 11', animationDelay: '400ms' }}>
+                    <section className="col-span-1 md:col-span-1 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '400ms' }}>
                         <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.15em] uppercase mb-3 select-none" style={{ fontWeight: 400 }}>
                             Connect
                         </h2>
@@ -90,7 +93,7 @@ function About() {
                     </section>
 
                     {/* COLUMN 12: Links Section */}
-                    <section className="col-span-1 md:col-span-1 space-y-3 animate-in fade-in duration-1000" style={{ gridColumn: '12 / 13', animationDelay: '500ms' }}>
+                    <section className="col-span-1 md:col-span-2 space-y-3 animate-in fade-in duration-1000" style={{ animationDelay: '500ms' }}>
                         <h2 className="text-[#7a7770] text-[14px] font-sfmono tracking-[0.15em] uppercase mb-3 select-none" style={{ fontWeight: 400 }}>
                             Links
                         </h2>

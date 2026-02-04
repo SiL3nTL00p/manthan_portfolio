@@ -27,11 +27,15 @@ const GithubContributions = () => {
             setLoading(true);
             setError(null);
 
-            // GitHub GraphQL API query
+            // GitHub GraphQL API query - restricted to current year (2026)
+            const currentYear = new Date().getFullYear();
+            const from = `${currentYear}-01-01T00:00:00Z`;
+            const to = `${currentYear}-12-31T23:59:59Z`;
+
             const query = `
-        query($userName: String!) {
+        query($userName: String!, $from: DateTime!, $to: DateTime!) {
           user(login: $userName) {
-            contributionsCollection {
+            contributionsCollection(from: $from, to: $to) {
               contributionCalendar {
                 totalContributions
                 weeks {
@@ -59,7 +63,7 @@ const GithubContributions = () => {
                 },
                 body: JSON.stringify({
                     query,
-                    variables: { userName: GITHUB_USERNAME },
+                    variables: { userName: GITHUB_USERNAME, from, to },
                 }),
             });
 
@@ -105,15 +109,26 @@ const GithubContributions = () => {
     };
 
     const generateMockData = () => {
-        // Generate 52 weeks of mock data
+        // Generate contributions for this year (2026)
         const weeks: ContributionWeek[] = [];
+        const currentYear = new Date().getFullYear();
+        const yearStart = new Date(currentYear, 0, 1);
         const today = new Date();
+        const yearEnd = today.getFullYear() === currentYear ? today : new Date(currentYear, 11, 31);
 
-        for (let week = 0; week < 52; week++) {
+        // Calculate weeks from year start to today
+        const millisInAWeek = 7 * 24 * 60 * 60 * 1000;
+        const weekCount = Math.ceil((yearEnd.getTime() - yearStart.getTime()) / millisInAWeek);
+
+        for (let week = 0; week < weekCount; week++) {
             const days: ContributionDay[] = [];
             for (let day = 0; day < 7; day++) {
-                const date = new Date(today);
-                date.setDate(date.getDate() - ((51 - week) * 7 + (6 - day)));
+                const date = new Date(yearStart);
+                date.setDate(date.getDate() + (week * 7 + day));
+
+                // Don't add dates beyond today
+                if (date > yearEnd) break;
+
                 const count = Math.floor(Math.random() * 15);
                 days.push({
                     date: date.toISOString().split('T')[0],
@@ -121,7 +136,9 @@ const GithubContributions = () => {
                     level: getContributionLevel(count),
                 });
             }
-            weeks.push({ days });
+            if (days.length > 0) {
+                weeks.push({ days });
+            }
         }
 
         setContributionData(weeks);
