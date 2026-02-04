@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Silence non-critical console output in production (hosted) builds
 if (import.meta.env.PROD) {
-  const noop = () => {};
+  const noop = () => { };
   // Keep console.error so real errors are still visible
   console.log = noop;
   console.info = noop;
