@@ -189,7 +189,7 @@ const GithubContributions = () => {
     }
 
     return (
-        <div className="w-full py-12 bg-[#111111] animate-in fade-in duration-1000\" style={{ animationDelay: '600ms' }}>
+        <div className="w-full py-6 pb-0 bg-[#111111] animate-in fade-in duration-1000" style={{ animationDelay: '600ms' }}>
             <div className="w-full overflow-x-auto px-5">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4 px-1">

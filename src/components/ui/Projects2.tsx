@@ -65,57 +65,63 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const ProjectsGrid: React.FC = () => {
   return (
 
-    <div className="min-h-screen w-full bg-[#111111] py-10 px-2">
+    <div className="min-h-screen w-full bg-[#111111] py-10 pt-4 px-2">
 
       <div className="columns-1 sm:columns-2 md:columns-3 gap-2 group/grid">
+
+      <ProjectCard
+          href="https://github.com/SiL3nTL00p/Brain_Tumor_Segmentation_BCP"
+          title="BTSP"
+          category="BIOX-WNCC PROJECT"
+          imageSrc="/btsp.png"
+          imageAlt="btsp"
+        />
+        
+        <ProjectCard
+          href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/Probabilistic%20graphic%20models"
+          title="PROBABILISTIC GRAPHIC MODEL"
+          category="CONSUMER PRODUCT"
+          imageSrc="/soc.jpeg"
+          imageAlt="currency converter"
+        />
+
+
         <ProjectCard
           href=""
           title="RESUME RATER"
           category="AI MODEL"
-          imageSrc="/aic.png"
+          imageSrc="/aic2.png"
           mediaType="image"
           imageAlt="resume rater"
         />
 
         <ProjectCard
-          href="https://github.com/SiL3nTL00p/WiDS-Neural-Voyage"
-          title="WiDS'24"
-          category="PRODUCTIVITY"
-          imageSrc="/wids.png"
+          href="https://github.com/SiL3nTL00p/Kalman-Filtered-Trend-Trader-A-Deep-Reinforcement-Learning-Agent-for-Portfolio-Optimization"
+          title="WiDS'25"
+          category="TRADING ALGORITHM"
+          imageSrc="/dqn2.png"
           imageAlt="wids"
         />
 
         <ProjectCard
-          href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/FinSearch_25"
-          title="FinSearch'25"
-          category="MENTORED RESEARCH PROJECT"
-          imageSrc="/finsearch.png"
-          imageAlt="finsearch"
+          href="https://github.com/AiCommunityIITB/InstiGPT"
+          title="InstiGPT"
+          category="AIC NLP PROJECT"
+          imageSrc="/instigpt copy.mp4"
+          imageAlt="instigpt"
+          mediaType="video"
         />
+
+
 
         <ProjectCard
           href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOS_25"
-          title="Generative and Agentic Ai (SOS'25)"
-          category="INVESTIGATIVE STUDY PROJECT"
-          imageSrc="/SOS.png"
-          imageAlt="sos"
+          title="Karyogram"
+          category="MEDICAL IMAGING PROJECT"
+          imageSrc="/karyo.png"
+          imageAlt="karyogram"
         />
 
-        <ProjectCard
-          href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOC_25"
-          title="Probabilistic Modelling (SOS'25)"
-          category="MODEL BUILDING PROJECT"
-          imageSrc="/soc.jpeg"
-          imageAlt="soc"
-        />
-
-        <ProjectCard
-          href="https://github.com/SiL3nTL00p/currency_converter"
-          title="Currency Converter(Vitta Exchange)"
-          category="CONSUMER PRODUCT"
-          imageSrc="/cc.png"
-          imageAlt="currency converter"
-        />
 
         {/* Add more ProjectCard components as needed */}
       </div>

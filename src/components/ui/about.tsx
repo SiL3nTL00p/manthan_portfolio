@@ -1,5 +1,5 @@
 
-function ListItem({ href, text }: { href: string; text: string }) {
+function ListItem({ href, text, number }: { href: string; text: string; number: number }) {
     return (
         <li className="group">
             <a
@@ -11,7 +11,7 @@ function ListItem({ href, text }: { href: string; text: string }) {
                 <span className="text-[14.1px] md:text-[15px] text-[#ffffff] border-b-2 border-dotted border-[#444] leading-tight hover:text-[#fde047] hover:border-[#fde047] transition-all duration-300 ease-in-out" style={{ fontFamily: '"Neue Haas Unica", "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"', fontWeight: 500 }}>
                     {text}
                 </span>
-                <sup className="text-[10px] md:text-[10px] text-[#fde047] opacity-100 duration-300">↗</sup>
+                <sup className="text-[9px]  text-[#fde047] opacity-100 duration-300">{number}</sup>
             </a>
         </li>
     );
@@ -79,14 +79,17 @@ function About() {
                             <ListItem
                                 href="mailto:pattedamanthan@gmail.com"
                                 text="Email"
+                                number={1}
                             />
                             <ListItem
                                 href="https://www.linkedin.com/in/manthan-p-6457b3313/"
                                 text="LinkedIn"
+                                number={2}
                             />
                             <ListItem
                                 href="https://github.com/SiL3nTL00p"
                                 text="Github"
+                                number={3}
                             />
                         </ul>
                     </section>
@@ -101,6 +104,7 @@ function About() {
                             <ListItem
                                 href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
                                 text="Resume"
+                                number={1}
                             />
 
                         </ul>
