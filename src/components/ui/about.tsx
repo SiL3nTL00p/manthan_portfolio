@@ -22,7 +22,7 @@ function About() {
 
     return (
         <div>
-            <main className="flex flex-col items-center justify-start bg-[#0b0909] text-white font-sfmono relative z-10 pt-4 animate-in fade-in duration-1000">
+            <main className="flex flex-col items-center justify-start bg-[#111111] text-white font-sfmono relative z-10 pt-4 animate-in fade-in duration-1000">
 
                 {/* Fixed Header - Outside Grid */}
                 <div className="w-full mb-6 animate-in fade-in duration-1000 px-5" style={{ animationDelay: '100ms' }}>
@@ -48,7 +48,6 @@ function About() {
                         {/* Bio Text */}
                         <div className="space-y-4  text-[#ffffff]" style={{ fontFamily: '"Neue Haas Unica", "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"', fontWeight: 500, lineHeight: '140%' }}>
                             <p className="text-[14.1px] md:text-[15px] leading-snug tracking-normal">
-                                <span className="text-[#fde047] border-b-2 border-dotted border-[#444] ">Konnichiwa !!!</span> <br />
                                 I synthesize machine learning theory with practical engineering, solving complex puzzles through the lens of a student-builder.
                                 I am driven by the quantification of reality, the ability to map physical phenomena into numerical dimensions and architect systems that transcend human cognitive limits.
                                 My portfolio tracks my evolution from first principles to deployed code, are you ready to explore the trajectory, huh ?

@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Wrapper
       href={href}
-      className="group/card block mb-4 break-inside-avoid bg-[#0b0909] transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-75 relative px-0.5 py-0.5 "
+      className="group/card block mb-4 break-inside-avoid bg-[#111111] transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-75 relative px-0.5 py-0.5 "
       {...(href ? { target: "_self", rel: "noopener noreferrer" } : {})}
       style={{
         fontFamily:
@@ -65,7 +65,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const ProjectsGrid: React.FC = () => {
   return (
 
-    <div className="min-h-screen w-full bg-[#0b0909] py-10 px-2">
+    <div className="min-h-screen w-full bg-[#111111] py-10 px-2">
 
       <div className="columns-1 sm:columns-2 md:columns-3 gap-2 group/grid">
         <ProjectCard
