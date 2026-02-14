@@ -9,21 +9,21 @@ function App() {
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0b0909] text-gray-200 scale-100 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-[#111111] text-gray-200 scale-100 relative overflow-hidden">
 
       {/* About section */}
       <div className="z-15">
         <About />
       </div>
 
+      {/* Projects */}
+      <div className="z-15 mt-5">
+        <ProjectsGrid />
+      </div>
+
       {/* GitHub Contributions */}
       <div className="z-15">
         <GithubContributions />
-      </div>
-
-      {/* Projects */}
-      <div className="z-15">
-        <ProjectsGrid />
       </div>
 
       {/* Footer */}
