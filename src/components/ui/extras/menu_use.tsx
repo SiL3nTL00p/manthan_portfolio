@@ -1,4 +1,4 @@
-import { MenuBar } from "./top_menu"
+import { MenuBar } from "@/components/ui/extras/top_menu"
 import * as React from "react"
 
 

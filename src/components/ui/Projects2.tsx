@@ -70,7 +70,7 @@ const ProjectsGrid: React.FC = () => {
       <div className="columns-1 sm:columns-2 md:columns-3 gap-2 group/grid">
 
       <ProjectCard
-          href="https://github.com/SiL3nTL00p/Brain_Tumor_Segmentation_BCP"
+          href="/projects/btsp"
           title="BTSP"
           category="BIOX-WNCC PROJECT"
           imageSrc="/btsp.png"
@@ -78,7 +78,7 @@ const ProjectsGrid: React.FC = () => {
         />
         
         <ProjectCard
-          href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/Probabilistic%20graphic%20models"
+          href="/projects/probabilistic-graphic-model"
           title="PROBABILISTIC GRAPHIC MODEL"
           category="CONSUMER PRODUCT"
           imageSrc="/soc.jpeg"
@@ -87,7 +87,7 @@ const ProjectsGrid: React.FC = () => {
 
 
         <ProjectCard
-          href=""
+          href="/projects/resume-rater"
           title="RESUME RATER"
           category="AI MODEL"
           imageSrc="/aic2.png"
@@ -96,7 +96,7 @@ const ProjectsGrid: React.FC = () => {
         />
 
         <ProjectCard
-          href="https://github.com/SiL3nTL00p/Kalman-Filtered-Trend-Trader-A-Deep-Reinforcement-Learning-Agent-for-Portfolio-Optimization"
+          href="/projects/wids"
           title="WiDS'25"
           category="TRADING ALGORITHM"
           imageSrc="/dqn2.png"
@@ -104,7 +104,7 @@ const ProjectsGrid: React.FC = () => {
         />
 
         <ProjectCard
-          href="https://github.com/AiCommunityIITB/InstiGPT"
+          href="/projects/instigpt"
           title="InstiGPT"
           category="AIC NLP PROJECT"
           imageSrc="/instigpt copy.mp4"
@@ -115,7 +115,7 @@ const ProjectsGrid: React.FC = () => {
 
 
         <ProjectCard
-          href="https://github.com/SiL3nTL00p/IITB_Projects/tree/main/SOS_25"
+          href="/projects/karyogram"
           title="Karyogram"
           category="MEDICAL IMAGING PROJECT"
           imageSrc="/karyo.png"
