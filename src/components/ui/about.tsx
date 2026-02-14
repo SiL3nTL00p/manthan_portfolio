@@ -86,10 +86,10 @@ function NavBar() {
                         resume <span className="text-[10px]">↗</span>
                     </a>
                 </div>
-                
+
                 {/* Mobile Menu Toggle (Hamburger / Close) */}
-                <button 
-                    onClick={() => setIsOpen(!isOpen)} 
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
                     className="md:hidden text-white text-2xl z-50 relative focus:outline-none"
                 >
                     {isOpen ? "✕" : "≡"}
@@ -107,30 +107,30 @@ function NavBar() {
                         className="fixed inset-0 bg-[#111111] z-40 flex flex-col justify-start pt-32 px-6 md:hidden"
                     >
                         <div className="flex flex-col gap-6">
-                            <motion.a 
-                                custom={0} 
-                                variants={linkVariants} 
-                                href="#work" 
-                                onClick={(e) => scrollToSection(e, 'work')} 
+                            <motion.a
+                                custom={0}
+                                variants={linkVariants}
+                                href="#work"
+                                onClick={(e) => scrollToSection(e, 'work')}
                                 className="text-4xl font-bold text-[#EBEBF5] tracking-tight"
                                 style={{ fontFamily: '"Neue Haas Unica", sans-serif' }}
                             >
                                 work
                             </motion.a>
-                            <motion.a 
-                                custom={1} 
-                                variants={linkVariants} 
-                                href="/about-me" 
+                            <motion.a
+                                custom={1}
+                                variants={linkVariants}
+                                href="/about-me"
                                 className="text-4xl font-bold text-[#EBEBF5] tracking-tight"
                                 style={{ fontFamily: '"Neue Haas Unica", sans-serif' }}
                             >
                                 about me
                             </motion.a>
-                            <motion.a 
-                                custom={2} 
-                                variants={linkVariants} 
-                                href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing" 
-                                target="_blank" 
+                            <motion.a
+                                custom={2}
+                                variants={linkVariants}
+                                href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
+                                target="_blank"
                                 className="text-4xl font-bold text-[#EBEBF5] tracking-tight"
                                 style={{ fontFamily: '"Neue Haas Unica", sans-serif' }}
                             >
@@ -149,7 +149,7 @@ function NavBar() {
 function About() {
     return (
         <div className="min-h-screen bg-[#111111]">
-            
+
             <NavBar />
 
             <main className="flex flex-col items-center justify-start bg-[#111111] text-white font-sfmono relative z-10 pt-24 animate-in fade-in duration-1000 pb-20">
@@ -157,7 +157,7 @@ function About() {
                 <div className="w-full px-5 max-w-5xl mx-auto">
                     {/* Trajectory Section */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mb-32">
-                        <motion.div 
+                        <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             whileInView="visible"
@@ -197,13 +197,13 @@ function About() {
                     </div>
 
                     {/* Detailed Experience Cards */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-sm font-mono text-gray-500 mb-12 uppercase tracking-widest">
+                        <h2 className="text-base font-mono text-gray-500 mb-12 uppercase tracking-widest">
                             // Deep Dive: Experience
                         </h2>
                         <div className="grid gap-3 ">
@@ -215,16 +215,17 @@ function About() {
 
                 {/* --- SELECTED WORK SECTION --- */}
                 <div id="work" className="w-full px-5 mt-40 max-w-[1400px] mx-auto">
-                    <motion.h2 
+                    <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[12vw] md:text-[8rem] font-bold leading-none tracking-tighter text-[#EBEBF5] mb-[-50px]"
+                        className="text-[3rem] font-bold leading-none tracking-tighter uppercase text-gray-500 mb-[-75px] whitespace-nowrap max-[420px]:text-[2.25rem]"
                     >
-                        selected work
+                        // selected work
                     </motion.h2>
                 </div>
+
 
             </main>
         </div>
