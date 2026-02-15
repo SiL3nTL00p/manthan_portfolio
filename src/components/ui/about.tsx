@@ -72,7 +72,7 @@ function NavBar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#111111]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#111111] border-b border-white/5 transition-all duration-300">
                 {/* Logo */}
                 <a href="/" className="text-white font-sfmono text-lg font-bold tracking-tight hover:opacity-80 transition-opacity z-50 relative">
                     SiL3nTL00p
@@ -149,8 +149,6 @@ function NavBar() {
 function About() {
     return (
         <div className="min-h-screen bg-[#111111]">
-
-            <NavBar />
 
             <main className="flex flex-col items-center justify-start bg-[#111111] text-white font-sfmono relative z-10 pt-24 animate-in fade-in duration-1000 pb-20">
 
@@ -232,4 +230,4 @@ function About() {
     )
 }
 
-export { About }
+export { About, NavBar }
