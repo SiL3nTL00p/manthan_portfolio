@@ -82,7 +82,7 @@ function NavBar() {
                 <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
                     <a href="#work" onClick={(e) => scrollToSection(e, 'work')} className="hover:text-white transition-colors cursor-pointer">work</a>
                     <a href="/about-me" className="text-white">about</a>
-                    <a href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                    <a href="https://drive.google.com/drive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
                         resume <span className="text-[10px]">↗</span>
                     </a>
                 </div>
@@ -129,7 +129,7 @@ function NavBar() {
                             <motion.a
                                 custom={2}
                                 variants={linkVariants}
-                                href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
+                                href="https://drive.google.comdrive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing"
                                 target="_blank"
                                 className="text-4xl font-bold text-[#EBEBF5] tracking-tight"
                                 style={{ fontFamily: '"Neue Haas Unica", sans-serif' }}
