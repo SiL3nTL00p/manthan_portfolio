@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import ProjectDetail from "./pages/project_details";
+import Shaped from "./pages/shaped";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -64,6 +65,7 @@ function Root() {
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/projects/:slug" element={<ProjectDetail />} />
+            <Route path="/shaped" element={<Shaped />} />
           </Routes>
         </main>
       </div>

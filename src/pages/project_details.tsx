@@ -6,43 +6,47 @@ import type { Variants } from "framer-motion";
 
 // --- NAVIGATION COMPONENT ---
 function NavBar() {
-    return (
-        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#111111]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-            {/* Logo */}
-            <Link to="/" className="text-white font-sfmono text-lg font-bold tracking-tight hover:opacity-80 transition-opacity">
-                SiL3nTL00p
-            </Link>
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#111111]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+      {/* Logo */}
+      <Link to="/" className="text-white font-sfmono text-lg font-bold tracking-tight hover:opacity-80 transition-opacity">
+        SiL3nTL00p
+      </Link>
 
-            {/* Desktop Links */}
-            <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
-                {/* Link to Home Page's Work Section */}
-                <a 
-                    href="/#work" 
-                    className="hover:text-white transition-colors cursor-pointer"
-                >
-                    work
-                </a>
-                
-                <Link to="/about-me" className="text-white hover:opacity-80 transition-opacity">
-                    about me
-                </Link>
+      {/* Desktop Links */}
+      <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
+        {/* Link to Home Page's Work Section */}
+        <a
+          href="/#work"
+          className="hover:text-white transition-colors cursor-pointer"
+        >
+          work
+        </a>
 
-                <a 
-                    href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors flex items-center gap-1"
-                >
-                    resume <span className="text-[10px]">↗</span>
-                </a>
-            </div>
-            
-            {/* Mobile Menu Icon (Visual only) */}
-            <div className="md:hidden text-white text-xl cursor-pointer">
-                ≡
-            </div>
-        </nav>
-    );
+        <a href="/#about" className="hover:text-white transition-colors cursor-pointer">
+          about
+        </a>
+
+        <Link to="/shaped" className="hover:text-white transition-colors">
+          ~/me
+        </Link>
+
+        <a
+          href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors flex items-center gap-1"
+        >
+          resume <span className="text-[10px]">↗</span>
+        </a>
+      </div>
+
+      {/* Mobile Menu Icon (Visual only) */}
+      <div className="md:hidden text-white text-xl cursor-pointer">
+        ≡
+      </div>
+    </nav>
+  );
 }
 
 
@@ -75,30 +79,30 @@ function ProjectMeta({ label, value }: { label: string; value: string }) {
 // --- ANIMATION VARIANTS ---
 
 const fadeInUp: Variants = {
-    hidden: {
-        opacity: 0,
-        y: 40,
-        filter: "blur(10px)"
+  hidden: {
+    opacity: 0,
+    y: 40,
+    filter: "blur(10px)"
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
     },
-    visible: {
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-        transition: {
-            duration: 0.8,
-            ease: "easeOut"
-        },
-    },
+  },
 };
 
 const staggerContainer: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2,
-        },
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
     },
+  },
 };
 
 function TechBadge({ text }: { text: string }) {
@@ -127,17 +131,17 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-[#111111] text-white selection:bg-[#fde047]/30">
-      
+
       {/* --- NAVBAR --- */}
-        <NavBar />
+      <NavBar />
 
       <main className="pt-24 pb-20 px-5 md:px-8 max-w-[1600px] mx-auto">
-        
+
         {/* --- HERO SECTION --- */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end mb-24 mt-12">
-          
+
           <div className="md:col-span-8 space-y-6">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -146,14 +150,14 @@ export default function ProjectDetail() {
             >
               {project.title}
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-[16px] md:text-[18px] text-[#999] max-w-2xl leading-relaxed"
               style={monoFont}
             >
-              {project.subtitle} <br/>
+              {project.subtitle} <br />
               <span className="text-[#666]">{project.category}</span>
             </motion.p>
           </div>
@@ -162,13 +166,13 @@ export default function ProjectDetail() {
             <ProjectMeta label="Role" value={project.role} />
             <ProjectMeta label="Year" value={project.year} />
             <ProjectMeta label="Type" value={project.type} />
-            
+
             <div className="space-y-2 col-span-2">
               <h3 className="text-[13px] md:text-[14px] text-[#555] uppercase tracking-[0.05em] select-none" style={monoFont}>// Stack</h3>
               <div className="flex flex-wrap gap-2">
-                 {project.stack.map((tech) => (
-                   <TechBadge key={tech} text={tech} />
-                 ))}
+                {project.stack.map((tech) => (
+                  <TechBadge key={tech} text={tech} />
+                ))}
               </div>
             </div>
           </div>
@@ -176,94 +180,94 @@ export default function ProjectDetail() {
 
         {/* --- MAIN MEDIA (VIDEO OR IMAGE) --- */}
         <motion.div
-           initial={{ opacity: 0, scale: 0.98 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 1, ease: "circOut" }}
-           className="relative w-full aspect-video md:h-[70vh] bg-neutral-900 border border-white/5 mb-24 overflow-hidden"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "circOut" }}
+          className="relative w-full aspect-video md:h-[70vh] bg-neutral-900 border border-white/5 mb-24 overflow-hidden"
         >
           {/* LOGIC: Check if video exists, otherwise show image */}
           {/* @ts-ignore - Ignoring type check for 'video' field if not yet added to interface */}
           {project.video ? (
             <video
-                src={project.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover opacity-90"
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover opacity-90"
             />
           ) : (
-            <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-cover opacity-90"
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover opacity-90"
             />
           )}
-          
+
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-40"></div>
         </motion.div>
 
         {/* --- DEEP DIVE CONTENT --- */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
-          
-          {/* Left: Sticky Sidebar */}
-            <div className="md:col-span-4 space-y-12">
-                <div className="sticky top-32 space-y-8">
-                    
-                    {/* BUTTON CODE */}
-                    <a 
-                        // @ts-ignore
-                        href={project.sourceLink} 
-                        target="_blank"           
-                        rel="noopener noreferrer" 
-                        className="group block w-full py-4 border-t border-b border-[#333] hover:border-[#fde047] transition-colors"
-                    >
-                        <div className="flex items-center justify-between" style={monoFont}>
-                            <span className="text-[13px] uppercase tracking-widest text-[#7a7770] group-hover:text-[#fde047]">
-                                View Source
-                            </span>
-                            <span className="text-lg group-hover:translate-x-1 transition-transform group-hover:text-[#fde047]">
-                                ↗
-                            </span>
-                        </div>
-                    </a>
 
-                    <p className="text-[14px] md:text-[15px] text-[#888] leading-relaxed" style={monoFont}>
-                        {project.description}
-                    </p>
+          {/* Left: Sticky Sidebar */}
+          <div className="md:col-span-4 space-y-12">
+            <div className="sticky top-32 space-y-8">
+
+              {/* BUTTON CODE */}
+              <a
+                // @ts-ignore
+                href={project.sourceLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block w-full py-4 border-t border-b border-[#333] hover:border-[#fde047] transition-colors"
+              >
+                <div className="flex items-center justify-between" style={monoFont}>
+                  <span className="text-[13px] uppercase tracking-widest text-[#7a7770] group-hover:text-[#fde047]">
+                    View Source
+                  </span>
+                  <span className="text-lg group-hover:translate-x-1 transition-transform group-hover:text-[#fde047]">
+                    ↗
+                  </span>
                 </div>
+              </a>
+
+              <p className="text-[14px] md:text-[15px] text-[#888] leading-relaxed" style={monoFont}>
+                {project.description}
+              </p>
             </div>
+          </div>
 
           {/* Narrative */}
           <div className="md:col-span-8 space-y-16">
-             <motion.section variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
-                <motion.h2 variants={fadeInUp} className="text-[22px] font-bold text-[#EBEBF5]" style={monoFont}>The Challenge</motion.h2>
-                <motion.p variants={fadeInUp} className="text-[16px] md:text-[17px] text-[#999] leading-relaxed" style={monoFont}>{project.challenge}</motion.p>
-             </motion.section>
+            <motion.section variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
+              <motion.h2 variants={fadeInUp} className="text-[22px] font-bold text-[#EBEBF5]" style={monoFont}>The Challenge</motion.h2>
+              <motion.p variants={fadeInUp} className="text-[16px] md:text-[17px] text-[#999] leading-relaxed" style={monoFont}>{project.challenge}</motion.p>
+            </motion.section>
 
-             <motion.section variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
-                <motion.h2 variants={fadeInUp} className="text-[22px] font-bold text-[#EBEBF5]" style={monoFont}>The Solution</motion.h2>
-                <motion.p variants={fadeInUp} className="text-[16px] md:text-[17px] text-[#999] leading-relaxed" style={monoFont}>{project.solution}</motion.p>
-             </motion.section>
+            <motion.section variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
+              <motion.h2 variants={fadeInUp} className="text-[22px] font-bold text-[#EBEBF5]" style={monoFont}>The Solution</motion.h2>
+              <motion.p variants={fadeInUp} className="text-[16px] md:text-[17px] text-[#999] leading-relaxed" style={monoFont}>{project.solution}</motion.p>
+            </motion.section>
 
-             <motion.section variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
-                <motion.h2 variants={fadeInUp} className="text-[22px] font-bold text-[#EBEBF5]" style={monoFont}>Impact</motion.h2>
-                <motion.p variants={fadeInUp} className="text-[16px] md:text-[17px] text-[#999] leading-relaxed" style={monoFont}>{project.impact}</motion.p>
-             </motion.section>
+            <motion.section variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
+              <motion.h2 variants={fadeInUp} className="text-[22px] font-bold text-[#EBEBF5]" style={monoFont}>Impact</motion.h2>
+              <motion.p variants={fadeInUp} className="text-[16px] md:text-[17px] text-[#999] leading-relaxed" style={monoFont}>{project.impact}</motion.p>
+            </motion.section>
           </div>
         </div>
 
         {/* --- NEXT PROJECT --- */}
         <div className="mt-40 border-t border-[#333] pt-12 flex justify-between items-end group cursor-pointer">
-           <div>
-              <p className="text-[13px] text-[#7a7770] uppercase mb-2" style={monoFont}>Next Project</p>
+          <div>
+            <p className="text-[13px] text-[#7a7770] uppercase mb-2" style={monoFont}>Next Project</p>
+            {/* @ts-ignore */}
+            <Link to={`/projects/${project.nextProject}`} className="text-3xl md:text-5xl font-bold text-white group-hover:text-[#fde047] transition-colors tracking-tight" style={displayFont}>
               {/* @ts-ignore */}
-              <Link to={`/projects/${project.nextProject}`} className="text-3xl md:text-5xl font-bold text-white group-hover:text-[#fde047] transition-colors tracking-tight" style={displayFont}>
-                 {/* @ts-ignore */}
-                 {project.nextProjectTitle}
-              </Link>
-           </div>
-           <span className="text-2xl text-[#666] group-hover:translate-x-2 transition-transform duration-300">→</span>
+              {project.nextProjectTitle}
+            </Link>
+          </div>
+          <span className="text-2xl text-[#666] group-hover:translate-x-2 transition-transform duration-300">→</span>
         </div>
 
       </main>

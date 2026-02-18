@@ -1,0 +1,349 @@
+import { useEffect } from "react";
+import { NavBar } from "../components/ui/about";
+
+// --- TYPES ---
+
+interface ShapedItem {
+    title: string;
+    type: string;
+    description: string;
+    rotation: number;
+    span: string;
+    /** URL to an image or video. Leave undefined for text-only cards. */
+    media?: string;
+    /** "image" (default) or "video" — auto-detected from extension if omitted. */
+    mediaType?: "image" | "video";
+}
+
+// --- DATA ---
+// To add media to a card, add a `media` field with the URL.
+// Videos are auto-detected from .mp4/.webm/.mov extensions, or set mediaType: "video".
+//
+// Example:
+//   { ...card, media: "/details_img/interstellar.jpg" }
+//   { ...card, media: "https://example.com/clip.mp4", mediaType: "video" }
+
+const shapedItems: ShapedItem[] = [
+    {
+        title: "Overthinking",
+        type: "[obsession]",
+        description:
+            "My most exhausting trait. Also the one I'm most grateful and hate myself for.",
+        rotation: -3,
+        span: "md:col-span-5 md:row-span-1",
+    },
+    {
+        title: "Don't believe everything you think",
+        type: "[book]",
+        description: "A reminder that my mind is a noisy place, and that's okay.",
+        rotation: 1,
+        span: "md:col-span-7 md:row-span-1",
+    },
+    {
+        title: "アニメ (Anime)",
+        type: "[film]",
+        description: "From the emotional depth of 'A Silent Voice' to the mind-bending narrative of 'Hyouka', anime made me reconsider my beliefs.",
+        rotation: -2.5,
+        span: "md:col-span-7 md:row-span-1",
+        // media: "/details_img/interstellar.jpg",
+    },
+    {
+        title: "3am debugging sessions",
+        type: "[habit]",
+        description: "When the world is quiet, the code finally makes sense.",
+        rotation: 1.5,
+        span: "md:col-span-5 md:row-span-1",
+    },
+    {
+        title: "Realization",
+        type: "[moment]",
+        description: "Realized alone times are the best ones.",
+        rotation: -1,
+        span: "md:col-span-4 md:row-span-1",
+    },
+    {
+        title: "Present",
+        type: "[life]",
+        description:
+            "I'm just trying, and most of the time failing. Just figuring things out as I go.",
+        rotation: 2.5,
+        span: "md:col-span-8 md:row-span-1",
+        // media: "/details_img/atomic_habits.jpg",
+    },
+];
+
+// --- HELPERS ---
+
+function isVideoUrl(url: string, mediaType?: "image" | "video"): boolean {
+    if (mediaType) return mediaType === "video";
+    return /\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(url);
+}
+
+function CardMedia({ media, mediaType, title }: { media: string; mediaType?: "image" | "video"; title: string }) {
+    if (isVideoUrl(media, mediaType)) {
+        return (
+            <video
+                src={media}
+                className="w-full h-auto max-h-48 object-cover rounded-sm mb-3"
+                autoPlay
+                loop
+                muted
+                playsInline
+            />
+        );
+    }
+    return (
+        <img
+            src={media}
+            alt={title}
+            className="w-full h-auto max-h-48 object-cover rounded-sm mb-3"
+            loading="lazy"
+        />
+    );
+}
+
+// Terminal UI fragments scattered between cards
+const terminalFragments = [
+    { text: "$ cat ~/memories | grep -i 'important'", delay: 0.3 },
+    { text: "→ 6 results found. rendering...", delay: 0.45 },
+    { text: "$ echo $PATH_TO_SELF", delay: 0.6 },
+    { text: "drwxr-xr-x  manthan  staff  experiences/", delay: 0.75 },
+    { text: "$ tree --depth 1 ~/shaped", delay: 0.9 },
+];
+
+// --- COMPONENT ---
+
+export default function Shaped() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    return (
+        <div className="min-h-screen bg-[#111111]">
+            {/* Scoped styles */}
+            <style>{`
+                .shaped-card {
+                    transform: rotate(var(--card-rotation, 0deg));
+                    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+                }
+                .shaped-card:hover {
+                    transform: rotate(0deg) translateY(-4px);
+                    border-color: rgba(253, 224, 71, 0.35);
+                }
+                @media (max-width: 767px) {
+                    .shaped-card { transform: none !important; }
+                }
+            `}</style>
+
+            <NavBar />
+
+            <main className="pt-24 pb-20 px-5 max-w-5xl mx-auto relative">
+
+                {/* ── Background decorative layer ── */}
+                <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+                    {/* Large ghost text */}
+                    <p className="absolute top-[6%] left-[5%] text-5xl md:text-7xl font-sfmono text-white opacity-[0.025] whitespace-nowrap">
+                        things-that-shaped-me
+                    </p>
+                    <p className="absolute top-[32%] right-[2%] text-3xl md:text-5xl font-sfmono text-white opacity-[0.03] whitespace-nowrap rotate-[-3deg]">
+                        &gt; compiling personality...
+                    </p>
+                    <p className="absolute bottom-[22%] left-[8%] text-4xl md:text-6xl font-sfmono text-white opacity-[0.02] whitespace-nowrap rotate-[1deg]">
+                        &gt; parsing experiences...
+                    </p>
+                    <p className="absolute bottom-[8%] right-[12%] text-2xl md:text-4xl font-sfmono text-white opacity-[0.03] whitespace-nowrap">
+                        exit_code: 0
+                    </p>
+
+                    {/* Ghost cursors blinking at different rates */}
+                    <span className="absolute top-[18%] right-[15%] text-2xl font-sfmono animate-blink-slow">—</span>
+                    <span className="absolute bottom-[35%] left-[3%] text-xl font-sfmono animate-blink-slow" style={{ animationDelay: "0.5s" }}>▋</span>
+                    <span className="absolute top-[55%] right-[5%] text-lg font-sfmono animate-blink-slow" style={{ animationDelay: "1.2s" }}>_</span>
+
+                    {/* Vertical pipe decorations */}
+                    <div className="absolute top-[12%] left-[48%] font-sfmono text-white opacity-[0.035] text-xs leading-tight whitespace-pre">
+                        {`│
+│
+├──
+│
+│
+└──`}
+                    </div>
+                    <div className="absolute bottom-[15%] right-[30%] font-sfmono text-white opacity-[0.03] text-xs leading-tight whitespace-pre">
+                        {`┌───────┐
+│ ░░░░░ │
+│ ░░░░░ │
+└───────┘`}
+                    </div>
+                </div>
+
+                {/* ── Terminal Window Bar ── */}
+                <div className="relative z-[1] border border-[#2a2a2a] rounded-lg overflow-hidden bg-[#0a0a0a]/50  mb-10 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}>
+                    <div className="flex items-center gap-2 px-4 py-3">
+                        <span className="w-3 h-3 rounded-full bg-[#FF5F57] shrink-0" />
+                        <span className="w-3 h-3 rounded-full bg-[#FFBD2E] shrink-0" />
+                        <span className="w-3 h-3 rounded-full bg-[#28C840] shrink-0" />
+                        <span className="ml-3 text-sm text-gray-400 font-sfmono truncate">
+                            manthan@life ~ % things-that-shaped-me
+                            <span className="inline-block w-[10px] ml-1 animate-blink text-white">▋</span>
+                        </span>
+                    </div>
+                    <div className="border-t border-[#2a2a2a]" />
+                </div>
+
+                {/* ── Terminal output line before cards ── */}
+                <div className="relative z-[1] font-sfmono text-sm text-gray-600 mb-8 ml-1 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}>
+                    <span className="text-gray-500">$</span> cat ~/memories | grep -i &apos;important&apos;
+                    <br />
+                    <span className="text-[#fde047]/40">→ 6 results found.</span> rendering...
+                </div>
+
+                {/* ══════════ CARD GRID ══════════ */}
+                <div className="relative z-[1] grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
+
+                    {/* Row 1: Card 0 (7-col) + Card 1 (5-col) */}
+                    {shapedItems.slice(0, 2).map((item, i) => (
+                        <div
+                            key={item.title}
+                            className={`${item.span} opacity-0 animate-fade-in-up`}
+                            style={{ animationDelay: `${0.25 + i * 0.1}s`, animationFillMode: "forwards" }}
+                        >
+                            <div
+                                className="shaped-card h-full bg-[#0d0d0d] border border-[#1e1e1e] p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+                                style={{ "--card-rotation": `${item.rotation}deg` } as React.CSSProperties}
+                            >
+                                {item.media && <CardMedia media={item.media} mediaType={item.mediaType} title={item.title} />}
+                                <span className="text-[11px] text-gray-500 font-sfmono tracking-wider uppercase">{item.type}</span>
+                                <h3 className="text-xl md:text-2xl font-bold text-white mt-2 font-sfmono leading-snug tracking-tight">{item.title}</h3>
+                                <p className="text-[15px] text-gray-400 mt-2.5 leading-relaxed font-sfmono">{item.description}</p>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* ── Inline terminal fragment ── */}
+                    <div className="md:col-span-12 opacity-0 animate-fade-in-up font-sfmono text-xs md:text-sm text-gray-600/50 py-2 md:py-3 ml-1 select-none" style={{ animationDelay: "0.45s", animationFillMode: "forwards" }}>
+                        <span className="text-gray-600/30">│</span>&nbsp;&nbsp;{terminalFragments[2].text}
+                    </div>
+
+                    {/* Row 2: Card 2 (4-col) + Card 3 (8-col) */}
+                    {shapedItems.slice(2, 4).map((item, i) => (
+                        <div
+                            key={item.title}
+                            className={`${item.span} opacity-0 animate-fade-in-up`}
+                            style={{ animationDelay: `${0.5 + i * 0.1}s`, animationFillMode: "forwards" }}
+                        >
+                            <div
+                                className="shaped-card h-full bg-[#0d0d0d] border border-[#1e1e1e] p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+                                style={{ "--card-rotation": `${item.rotation}deg` } as React.CSSProperties}
+                            >
+                                {item.media && <CardMedia media={item.media} mediaType={item.mediaType} title={item.title} />}
+                                <span className="text-[11px] text-gray-500 font-sfmono tracking-wider uppercase">{item.type}</span>
+                                <h3 className="text-xl md:text-2xl font-bold text-white mt-2 font-sfmono leading-snug tracking-tight">{item.title}</h3>
+                                <p className="text-[15px] text-gray-400 mt-2.5 leading-relaxed font-sfmono">{item.description}</p>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* ── Inline terminal fragment ── */}
+                    <div className="md:col-span-12 opacity-0 animate-fade-in-up font-sfmono text-xs md:text-sm text-gray-600/50 py-2 md:py-3 ml-1 select-none" style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}>
+                        <span className="text-gray-600/30">│</span>&nbsp;&nbsp;{terminalFragments[3].text}
+                        <br />
+                        <span className="text-gray-600/30">│</span>&nbsp;&nbsp;{terminalFragments[4].text}
+                    </div>
+
+                    {/* Row 3: Card 4 (5-col) + Card 5 (7-col) */}
+                    {shapedItems.slice(4, 6).map((item, i) => (
+                        <div
+                            key={item.title}
+                            className={`${item.span} opacity-0 animate-fade-in-up`}
+                            style={{ animationDelay: `${0.8 + i * 0.1}s`, animationFillMode: "forwards" }}
+                        >
+                            <div
+                                className="shaped-card h-full bg-[#0d0d0d] border border-[#1e1e1e] p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+                                style={{ "--card-rotation": `${item.rotation}deg` } as React.CSSProperties}
+                            >
+                                {item.media && <CardMedia media={item.media} mediaType={item.mediaType} title={item.title} />}
+                                <span className="text-[11px] text-gray-500 font-sfmono tracking-wider uppercase">{item.type}</span>
+                                <h3 className="text-xl md:text-2xl font-bold text-white mt-2 font-sfmono leading-snug tracking-tight">{item.title}</h3>
+                                <p className="text-[15px] text-gray-400 mt-2.5 leading-relaxed font-sfmono">{item.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* ── Terminal output after cards ── */}
+                <div className="relative z-[1] font-sfmono text-sm text-gray-500 mt-8 ml-1 space-y-1 opacity-0 animate-fade-in-up select-none" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
+                    <p><span className="text-gray-600">├──</span> render complete. 6 items loaded.</p>
+                    <p><span className="text-gray-600">├──</span> memory_usage: 19.2% <span className="inline-block w-24 h-2 bg-[#1e1e1e] rounded-full ml-1 relative overflow-hidden"><span className="absolute inset-y-0 left-0 w-[19%] bg-[#fde047]/40 rounded-full" /></span></p>
+                    <p><span className="text-gray-600">└──</span> I love spending time alone</p>
+                </div>
+
+                {/* ── Anime Terminal Log ── */}
+                <div className="relative z-[1] font-sfmono text-xs md:text-sm bg-[#0a0a0a]/60 border border-[#232323] rounded-lg p-4 mt-12 mb-4 max-w-2xl mx-auto shadow-[0_2px_16px_rgba(0,0,0,0.3)]">
+                    <div className="flex items-center gap-2 mb-2">
+                        <span className="w-2 h-2 rounded-full bg-[#FF5F57]" />
+                        <span className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
+                        <span className="w-2 h-2 rounded-full bg-[#28C840]" />
+                        <span className="ml-3 text-gray-400 font-sfmono text-xs">manthan@anime ~ % completed-anime-list</span>
+                        <span className="inline-block w-[10px] ml-1 animate-blink text-white">▋</span>
+                    </div>
+                    <div className="border-t border-[#232323] mb-2" />
+                    <div className="pl-4">
+                        <span className="text-gray-500">$</span> cat ~/anime/completed.txt
+                        <br />
+                        <span className="text-[#fde047]/80">Hyouka</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Steins;Gate</span>
+                        <br />
+                        <span className="text-[#fde047]/80">A Silent Voice</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Mob Psycho 100</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Attack on Titan</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Your Name</span>
+                        <br />
+                        <span className="text-[#fde047]/80">One Punch Man</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Death Note</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Violet Evergarden</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Cowboy Bebop</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Fullmetal Alchemist: Brotherhood</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Hunter x Hunter</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Demon Slayer</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Made in Abyss</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Kaguya-sama: Love is War</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Haikyuu!!</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Jujutsu Kaisen</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Oregairu</span>
+                        <br />
+                        <span className="text-[#fde047]/80">March Comes in Like a Lion</span>
+                        <br />
+                        <span className="text-[#fde047]/80">Ping Pong the Animation</span>
+                    </div>
+                </div>
+
+                {/* ── Terminal status bar / footer ── */}
+                <div className="relative z-[1] mt-20 border-t border-[#1e1e1e] pt-4 flex flex-col md:flex-row items-center justify-between gap-2 opacity-0 animate-fade-in-up" style={{ animationDelay: "1.1s", animationFillMode: "forwards" }}>
+                    <p className="font-sfmono text-sm text-gray-500 select-none">
+                        [exit] ← type anything or press any key
+                    </p>
+                    <p className="font-sfmono text-sm text-gray-500 select-none">
+                        manthan@life: ~/things-that-shaped-me
+                        <span className="inline-block ml-1 animate-blink text-gray-400">▋</span>
+                    </p>
+                </div>
+            </main>
+        </div>
+    );
+}

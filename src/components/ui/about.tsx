@@ -80,8 +80,9 @@ function NavBar() {
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
-                    <a href="#work" onClick={(e) => scrollToSection(e, 'work')} className="hover:text-white transition-colors cursor-pointer">work</a>
-                    <a href="/about-me" className="text-white">about</a>
+                    <a href="/#work" onClick={(e) => scrollToSection(e, 'work')} className="hover:text-white transition-colors cursor-pointer">work</a>
+                    <a href="/#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-white transition-colors cursor-pointer">about</a>
+                    <a href="/shaped" className="hover:text-white transition-colors cursor-pointer">~/me</a>
                     <a href="https://drive.google.com/drive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
                         resume <span className="text-[10px]">↗</span>
                     </a>
@@ -110,29 +111,35 @@ function NavBar() {
                             <motion.a
                                 custom={0}
                                 variants={linkVariants}
-                                href="#work"
+                                href="/#work"
                                 onClick={(e) => scrollToSection(e, 'work')}
-                                className="text-4xl font-bold text-[#EBEBF5] tracking-tight"
-                                style={{ fontFamily: '"Neue Haas Unica", sans-serif' }}
+                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
                             >
                                 work
                             </motion.a>
                             <motion.a
                                 custom={1}
                                 variants={linkVariants}
-                                href="/about-me"
-                                className="text-4xl font-bold text-[#EBEBF5] tracking-tight"
-                                style={{ fontFamily: '"Neue Haas Unica", sans-serif' }}
+                                href="/#about"
+                                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => scrollToSection(e, 'about')}
+                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
                             >
                                 about me
                             </motion.a>
                             <motion.a
                                 custom={2}
                                 variants={linkVariants}
-                                href="https://drive.google.comdrive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing"
+                                href="/shaped"
+                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
+                            >
+                                ~/me
+                            </motion.a>
+                            <motion.a
+                                custom={3}
+                                variants={linkVariants}
+                                href="https://drive.google.com/drive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing"
                                 target="_blank"
-                                className="text-4xl font-bold text-[#EBEBF5] tracking-tight"
-                                style={{ fontFamily: '"Neue Haas Unica", sans-serif' }}
+                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
                             >
                                 resume
                             </motion.a>
@@ -148,7 +155,7 @@ function NavBar() {
 
 function About() {
     return (
-        <div className="min-h-screen bg-[#111111]">
+        <div id="about" className="min-h-screen bg-[#111111]">
 
             <main className="flex flex-col items-center justify-start bg-[#111111] text-white font-sfmono relative z-10 pt-24 animate-in fade-in duration-1000 pb-20">
 
@@ -177,7 +184,8 @@ function About() {
                                 </p>
                                 {/* THE SIGNATURE */}
                                 <p className="pt-4 text-gray-500 text-right">
-                                    — manthan
+                                    — <span className="font-sfmono text-gray-500 text-lg">manthan</span> <br />
+                                    <span className="font-sfmono text-gray-500 text-base mt-2 block">Sophomore @ IIT Bombay</span>
                                 </p>
                             </motion.div>
                         </motion.div>

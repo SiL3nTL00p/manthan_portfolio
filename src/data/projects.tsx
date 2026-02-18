@@ -63,7 +63,7 @@ export const projects = [
     year: "2025",
     type: "Reinforcement Learning",
     stack: ["Gymnasium", "PyTorch", "Pandas", "DQN"],
-    image: "/wids.png", 
+    image: "/dqn.png", 
     description: "Deep Q-Learning agent designed for high-frequency trading simulations.",
     challenge: "Modeling market volatility is complex. Standard regression models fail to capture the sequential decision-making nature of trading where immediate actions affect future rewards.",
     solution: "Developed a Deep Q-Network (DQN) agent. The model takes market state vectors (MACD, RSI, Price Action) as input and outputs discrete actions (Buy, Sell, Hold). Implemented Experience Replay to stabilize training.",

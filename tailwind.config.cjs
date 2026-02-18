@@ -16,10 +16,25 @@ module.exports = {
           "50%": { backgroundColor: "var(--highlight)" },
           "100%": { backgroundColor: "hsl(var(--card))" },
         },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+        blinkSlow: {
+          "0%, 100%": { opacity: "0.03" },
+          "50%": { opacity: "0.07" },
+        },
+        fadeInUp: {
+          from: { opacity: "0", transform: "translateY(16px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         highlight: "highlight 0.6s ease forwards",
         flash: "flash 0.6s ease forwards",
+        blink: "blink 0.6s step-end infinite",
+        "blink-slow": "blinkSlow 0.9s ease-in-out infinite 0.3s",
+        "fade-in-up": "fadeInUp 0.6s ease-out forwards",
       },
       fontFamily: {
         sfmono: ["SF Mono", "Space Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", 'monospace'],
