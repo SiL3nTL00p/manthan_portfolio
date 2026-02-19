@@ -177,10 +177,10 @@ function About() {
                                     I synthesize <span className="text-white">machine learning theory</span> with practical engineering, solving complex puzzles through the lens of a student-builder.
                                 </p>
                                 <p>
-                                    My work tracks an evolution from first principles to deployed code. I am driven by the <span className="text-white">quantification of reality</span>—architecting systems that transcend cognitive limits.
+                                    My work tracks an evolution from first principles to deployed code. I am driven by the <span className="text-white">quantification of reality</span>, architecting systems that transcend cognitive limits.
                                 </p>
                                 <p>
-                                    My current obsession?<span className="text-white"> Hacking biology with code.</span> I’m driven by the math behind living systems and building AI that can understand health data better than we can. It's about quantifying reality to architect systems that transcend cognitive limits
+                                    My current obsession?<span className="text-white"> Hacking biology with code.</span> I’m driven by the math behind living systems and building AI that can understand health data better than we can. It's about quantifying reality to architect systems that transcend cognitive limits.
                                 </p>
                                 {/* THE SIGNATURE */}
                                 <p className="pt-4 text-gray-500 text-right">
