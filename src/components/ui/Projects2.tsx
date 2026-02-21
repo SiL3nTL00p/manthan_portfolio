@@ -64,66 +64,55 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
 const ProjectsGrid: React.FC = () => {
   return (
-
-    <div className="min-h-screen w-full bg-[#111111] py-10 pt-4 px-2">
-
-      <div className="columns-1 sm:columns-2 md:columns-3 gap-2 group/grid">
-
-      <ProjectCard
-          href="/projects/btsp"
-          title="BTSP"
-          category="BIOX-WNCC PROJECT"
-          imageSrc="/btsp.png"
-          imageAlt="btsp"
-        />
-        
-        <ProjectCard
-          href="/projects/probabilistic-graphic-model"
-          title="PROBABILISTIC GRAPHIC MODEL"
-          category="CONSUMER PRODUCT"
-          imageSrc="/soc.jpeg"
-          imageAlt="currency converter"
-        />
-
-
-        <ProjectCard
-          href="/projects/resume-rater"
-          title="RESUME RATER"
-          category="AI MODEL"
-          imageSrc="/aic2.png"
-          mediaType="image"
-          imageAlt="resume rater"
-        />
-
-        <ProjectCard
-          href="/projects/wids"
-          title="WiDS'25"
-          category="TRADING ALGORITHM"
-          imageSrc="/dqn2.png"
-          imageAlt="wids"
-        />
-
-        <ProjectCard
-          href="/projects/instigpt"
-          title="InstiGPT"
-          category="AIC NLP PROJECT"
-          imageSrc="/instigpt copy.mp4"
-          imageAlt="instigpt"
-          mediaType="video"
-        />
-
-
-
-        <ProjectCard
-          href="/projects/karyogram"
-          title="Karyogram"
-          category="MEDICAL IMAGING PROJECT"
-          imageSrc="/karyo.png"
-          imageAlt="karyogram"
-        />
-
-
-        {/* Add more ProjectCard components as needed */}
+    <div className="w-full bg-[#111111] py-10 pt-4">
+      <div className="max-w-5xl mx-auto px-5">
+        <div className="columns-1 sm:columns-2 md:columns-2 gap-4 group/grid">
+          <ProjectCard
+            href="/projects/btsp"
+            title="BTSP"
+            category="BIOX-WNCC PROJECT"
+            imageSrc="/btsp.png"
+            imageAlt="btsp"
+          />
+          <ProjectCard
+            href="/projects/probabilistic-graphic-model"
+            title="PROBABILISTIC GRAPHIC MODEL"
+            category="CONSUMER PRODUCT"
+            imageSrc="/soc.jpeg"
+            imageAlt="currency converter"
+          />
+          <ProjectCard
+            href="/projects/resume-rater"
+            title="RESUME RATER"
+            category="AI MODEL"
+            imageSrc="/aic2.png"
+            mediaType="image"
+            imageAlt="resume rater"
+          />
+          <ProjectCard
+            href="/projects/wids"
+            title="WiDS'25"
+            category="TRADING ALGORITHM"
+            imageSrc="/dqn2.png"
+            imageAlt="wids"
+          />
+          <ProjectCard
+            href="/projects/instigpt"
+            title="InstiGPT"
+            category="AIC NLP PROJECT"
+            imageSrc="/instigpt copy.mp4"
+            imageAlt="instigpt"
+            mediaType="video"
+          />
+          <ProjectCard
+            href="/projects/karyogram"
+            title="Karyogram"
+            category="MEDICAL IMAGING PROJECT"
+            imageSrc="/karyo.png"
+            imageAlt="karyogram"
+          />
+          {/* Add more ProjectCard components as needed */}
+        </div>
       </div>
     </div>
   );

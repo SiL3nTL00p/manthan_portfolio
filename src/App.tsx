@@ -14,27 +14,27 @@ function App() {
       <div className="min-h-screen flex flex-col bg-[#111111] text-gray-200 scale-100 relative overflow-hidden">
 
         {/* About section */}
-        <div className="z-15">
+        <div className="z-15 mb-[-10px]">
           <About />
         </div>
 
         {/* Projects */}
-        <div className="z-15 mt-5">
+        <div className="z-15 ">
           <ProjectsGrid />
         </div>
 
         {/* GitHub Contributions */}
-        <div className="z-15">
+        <div className="z-15 mb-10">
           <GithubContributions />
         </div>
 
         {/* Footer */}
-        <div className="z-15">
+        <div className="z-15 mt-10">
           <footer className=" flex flex-col items-center body bg-[#1C1C1C] dot-grid z-[1] w-full sticky bottom-0 text-zinc-100 font-sfmono">
             <section className="w-full grid grid-cols-12 grid-gap relative z-10 max-w-8xl pb-4 pt-4 px-4 gap-y-8">
               <div className="flex-col align-center space-y-2 col-start-1 col-end-13 caption md:col-start-1 md:col-end-6">
                 <span className="flex flex-row space-x-2 align-middle">
-                  <p className=" text-sm self-center px-2 pt-1 pb-[2px] mono uppercase text-zinc-600">Last updated 12/01/2026</p>
+                  <p className=" text-sm self-center px-2 pt-1 pb-[2px] mono uppercase text-zinc-600">Last updated 21/02/2026</p>
                 </span>
               </div>
             </section>

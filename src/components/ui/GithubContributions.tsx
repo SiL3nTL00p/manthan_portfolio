@@ -190,7 +190,7 @@ const GithubContributions = () => {
 
     return (
         <div className="w-full py-6 pb-0 bg-[#111111] animate-in fade-in duration-1000">
-            <div className="w-full overflow-x-auto px-5">
+            <div className="max-w-5xl mx-auto w-full overflow-x-auto px-5">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4 px-1">
                     <h2 className="text-[#7a7770] text-sm font-sfmono tracking-[0.2em] uppercase select-none font-normal">

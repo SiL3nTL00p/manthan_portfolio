@@ -37,7 +37,7 @@ const shapedItems: ShapedItem[] = [
         type: "[book]",
         description: "A reminder that my mind is a noisy place, and that's okay.",
         rotation: 1,
-        span: "md:col-span-7 md:row-span-1",
+        span: "md:col-span-7 md:row-span-1"
     },
     {
         title: "アニメ (Anime)",
@@ -279,7 +279,7 @@ export default function Shaped() {
                 </div>
 
                 {/* ── Anime Terminal Log ── */}
-                <div className="relative z-[1] font-sfmono text-xs md:text-sm bg-[#0a0a0a]/60 border border-[#232323] rounded-lg p-4 mt-12 mb-4 max-w-2xl mx-auto shadow-[0_2px_16px_rgba(0,0,0,0.3)]">
+                <div className="relative z-[1] font-sfmono text-xs md:text-sm bg-[#0a0a0a]/60 border border-[#232323] rounded-lg p-4 mt-12 mb-4 max-w-4xl mx-auto shadow-[0_2px_16px_rgba(0,0,0,0.3)]">
                     <div className="flex items-center gap-2 mb-2">
                         <span className="w-2 h-2 rounded-full bg-[#FF5F57]" />
                         <span className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
@@ -288,48 +288,33 @@ export default function Shaped() {
                         <span className="inline-block w-[10px] ml-1 animate-blink text-white">▋</span>
                     </div>
                     <div className="border-t border-[#232323] mb-2" />
-                    <div className="pl-4">
-                        <span className="text-gray-500">$</span> cat ~/anime/completed.txt
-                        <br />
-                        <span className="text-[#fde047]/80">Hyouka</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Steins;Gate</span>
-                        <br />
-                        <span className="text-[#fde047]/80">A Silent Voice</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Mob Psycho 100</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Attack on Titan</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Your Name</span>
-                        <br />
-                        <span className="text-[#fde047]/80">One Punch Man</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Death Note</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Violet Evergarden</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Cowboy Bebop</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Fullmetal Alchemist: Brotherhood</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Hunter x Hunter</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Demon Slayer</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Made in Abyss</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Kaguya-sama: Love is War</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Haikyuu!!</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Jujutsu Kaisen</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Oregairu</span>
-                        <br />
-                        <span className="text-[#fde047]/80">March Comes in Like a Lion</span>
-                        <br />
-                        <span className="text-[#fde047]/80">Ping Pong the Animation</span>
+                    <div className="pl-4 grid grid-cols-1 md:grid-cols-2 gap-x-12">
+                        <div>
+                            <span className="text-gray-500">$</span> Anime Series (Top 10)
+                            <br />
+                            <span className="text-[#fde047]/80">BLACK CLOVER</span><br />
+                            <span className="text-[#fde047]/80">HYOUKA</span><br />
+                            <span className="text-[#fde047]/80">FRIEREN</span><br />
+                            <span className="text-[#fde047]/80">TOKYO GHOUL</span><br />
+                            <span className="text-[#fde047]/80">NARUTO</span><br />
+                            <span className="text-[#fde047]/80">ONE PIECE</span><br />
+                            <span className="text-[#fde047]/80">BLEACH</span><br />
+                            <span className="text-[#fde047]/80">DEMON SLAYER</span><br />
+                            <span className="text-[#fde047]/80">BUNGO STRAY DOGS</span><br />
+                            <span className="text-[#fde047]/80">AOT</span><br />
+                        </div>
+                        <div>
+                            <span className="text-gray-500">$</span> Anime Movies
+                            <br />
+                            <span className="text-[#fde047]/80">THE LIGHT OF FIREFLY FOREST</span><br />
+                            <span className="text-[#fde047]/80">YOUR NAME</span><br />
+                            <span className="text-[#fde047]/80">SUZUME</span><br />
+                            <span className="text-[#fde047]/80">A SILENT VOICE</span><br />
+                            <span className="text-[#fde047]/80">5CM PER SECOND</span><br />
+                            <span className="text-[#fde047]/80">GARDEN OF WORDS</span><br />
+                            <span className="text-[#fde047]/80">NARUTO MOVIES</span><br />
+                            <span className="text-[#fde047]/80">SPY FAMILY : CODE WHITE</span><br />
+                        </div>
                     </div>
                 </div>
 

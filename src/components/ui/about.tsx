@@ -220,13 +220,13 @@ function About() {
                 </div>
 
                 {/* --- SELECTED WORK SECTION --- */}
-                <div id="work" className="w-full px-5 mt-40 max-w-[1400px] mx-auto">
+                <div id="work" className="w-full px-5 mt-16 max-w-5xl mx-auto">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[3rem] font-bold leading-none tracking-tighter uppercase text-gray-500 mb-[-75px] whitespace-nowrap max-[420px]:text-[2.25rem]"
+                        className="text-[1.05rem] font-mono text-gray-500 uppercase tracking-widest mb-[-275px] whitespace-nowrap max-[420px]:text-[2.25rem]"
                     >
                         // selected work
                     </motion.h2>
