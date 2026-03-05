@@ -1,51 +1,120 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../data/projects";
 import type { Variants } from "framer-motion";
 
 // --- NAVIGATION COMPONENT ---
 function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#111111]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-      {/* Logo */}
-      <Link to="/" className="text-white font-sfmono text-lg font-bold tracking-tight hover:opacity-80 transition-opacity">
-        SiL3nTL00p
-      </Link>
-
-      {/* Desktop Links */}
-      <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
-        {/* Link to Home Page's Work Section */}
-        <a
-          href="/#work"
-          className="hover:text-white transition-colors cursor-pointer"
-        >
-          work
-        </a>
-
-        <a href="/#about" className="hover:text-white transition-colors cursor-pointer">
-          about
-        </a>
-
-        <Link to="/shaped" className="hover:text-white transition-colors">
-          ~/me
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3 md:px-6 md:py-4 bg-[#111111] border-b border-white/5 transition-all duration-300">
+        {/* Logo */}
+        <Link to="/" className="text-white font-sfmono text-base md:text-lg font-bold tracking-tight hover:opacity-80 transition-opacity z-50 relative">
+          SiL3nTL00p
         </Link>
 
-        <a
-          href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white transition-colors flex items-center gap-1"
-        >
-          resume <span className="text-[10px]">↗</span>
-        </a>
-      </div>
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
+          <a href="/#work" className="hover:text-white transition-colors cursor-pointer">
+            work
+          </a>
 
-      {/* Mobile Menu Icon (Visual only) */}
-      <div className="md:hidden text-white text-xl cursor-pointer">
-        ≡
-      </div>
-    </nav>
+          <a href="/#about" className="hover:text-white transition-colors cursor-pointer">
+            about
+          </a>
+
+          <Link to="/shaped" className="hover:text-white transition-colors">
+            ~/me
+          </Link>
+
+          <a
+            href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors flex items-center gap-1"
+          >
+            resume <span className="text-[10px]">↗</span>
+          </a>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-white text-xl z-50 relative focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? "✕" : "≡"}
+        </button>
+      </nav>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="fixed inset-0 bg-[#111111] z-40 flex flex-col justify-start pt-24 px-6 md:hidden"
+          >
+            <div className="flex flex-col gap-5">
+              <motion.a
+                custom={0}
+                variants={linkVariants}
+                href="/#work"
+                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
+                onClick={() => setIsOpen(false)}
+              >
+                work
+              </motion.a>
+              <motion.a
+                custom={1}
+                variants={linkVariants}
+                href="/#about"
+                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
+                onClick={() => setIsOpen(false)}
+              >
+                about me
+              </motion.a>
+              <motion.a
+                custom={2}
+                variants={linkVariants}
+                href="/shaped"
+                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
+                onClick={() => setIsOpen(false)}
+              >
+                ~/me
+              </motion.a>
+              <motion.a
+                custom={3}
+                variants={linkVariants}
+                href="https://drive.google.com/file/d/1P4QbR-jHs0EQ5KOlh4zUSthVKtwps-iQ/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
+                onClick={() => setIsOpen(false)}
+              >
+                resume
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
@@ -103,6 +172,24 @@ const staggerContainer: Variants = {
       staggerChildren: 0.2,
     },
   },
+};
+
+const menuVariants: Variants = {
+  closed: { opacity: 0, y: -100 },
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeInOut" },
+  },
+};
+
+const linkVariants = {
+  closed: { opacity: 0, y: 20 },
+  open: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.1 + i * 0.1, duration: 0.4 },
+  }),
 };
 
 function TechBadge({ text }: { text: string }) {

@@ -72,9 +72,9 @@ function NavBar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#111111] border-b border-white/5 transition-all duration-300">
+            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3 md:px-6 md:py-4 bg-[#111111] border-b border-white/5 transition-all duration-300">
                 {/* Logo */}
-                <a href="/" className="text-white font-sfmono text-lg font-bold tracking-tight hover:opacity-80 transition-opacity z-50 relative">
+                <a href="/" className="text-white font-sfmono text-base md:text-lg font-bold tracking-tight hover:opacity-80 transition-opacity z-50 relative">
                     SiL3nTL00p
                 </a>
 
@@ -91,7 +91,7 @@ function NavBar() {
                 {/* Mobile Menu Toggle (Hamburger / Close) */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden text-white text-2xl z-50 relative focus:outline-none"
+                    className="md:hidden text-white text-xl z-50 relative focus:outline-none"
                 >
                     {isOpen ? "✕" : "≡"}
                 </button>
@@ -105,15 +105,15 @@ function NavBar() {
                         animate="open"
                         exit="closed"
                         variants={menuVariants}
-                        className="fixed inset-0 bg-[#111111] z-40 flex flex-col justify-start pt-32 px-6 md:hidden"
+                        className="fixed inset-0 bg-[#111111] z-40 flex flex-col justify-start pt-24 px-6 md:hidden"
                     >
-                        <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-5">
                             <motion.a
                                 custom={0}
                                 variants={linkVariants}
                                 href="/#work"
                                 onClick={(e) => scrollToSection(e, 'work')}
-                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
+                                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
                             >
                                 work
                             </motion.a>
@@ -122,7 +122,7 @@ function NavBar() {
                                 variants={linkVariants}
                                 href="/#about"
                                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => scrollToSection(e, 'about')}
-                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
+                                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
                             >
                                 about me
                             </motion.a>
@@ -130,7 +130,7 @@ function NavBar() {
                                 custom={2}
                                 variants={linkVariants}
                                 href="/shaped"
-                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
+                                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
                             >
                                 ~/me
                             </motion.a>
@@ -139,7 +139,7 @@ function NavBar() {
                                 variants={linkVariants}
                                 href="https://drive.google.com/drive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing"
                                 target="_blank"
-                                className="text-3xl font-bold text-[#EBEBF5] tracking-tight font-sfmono"
+                                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
                             >
                                 resume
                             </motion.a>
