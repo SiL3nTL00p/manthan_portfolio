@@ -34,10 +34,6 @@ function NavBar() {
             work
           </a>
 
-          <a href="/#about" className="hover:text-white transition-colors cursor-pointer">
-            about
-          </a>
-
           <Link to="/shaped" className="hover:text-white transition-colors">
             ~/me
           </Link>
@@ -80,15 +76,6 @@ function NavBar() {
                 onClick={() => setIsOpen(false)}
               >
                 work
-              </motion.a>
-              <motion.a
-                custom={1}
-                variants={linkVariants}
-                href="/#about"
-                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
-                onClick={() => setIsOpen(false)}
-              >
-                about me
               </motion.a>
               <motion.a
                 custom={2}

@@ -81,7 +81,6 @@ function NavBar() {
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
                     <a href="/#work" onClick={(e) => scrollToSection(e, 'work')} className="hover:text-white transition-colors cursor-pointer">work</a>
-                    <a href="/#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-white transition-colors cursor-pointer">about</a>
                     <a href="/shaped" className="hover:text-white transition-colors cursor-pointer">~/me</a>
                     <a href="https://drive.google.com/drive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
                         resume <span className="text-[10px]">↗</span>
@@ -116,15 +115,6 @@ function NavBar() {
                                 className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
                             >
                                 work
-                            </motion.a>
-                            <motion.a
-                                custom={1}
-                                variants={linkVariants}
-                                href="/#about"
-                                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => scrollToSection(e, 'about')}
-                                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
-                            >
-                                about me
                             </motion.a>
                             <motion.a
                                 custom={2}
@@ -226,7 +216,7 @@ function About() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[1.05rem] font-mono text-gray-500 uppercase tracking-widest mb-[-275px] whitespace-nowrap max-[420px]:text-[2.25rem]"
+                        className="text-[1.05rem] font-mono text-gray-500 uppercase tracking-widest mb-8 whitespace-nowrap max-[420px]:text-[2.25rem] md:mb-[-275px]"
                     >
                         // selected work
                     </motion.h2>
