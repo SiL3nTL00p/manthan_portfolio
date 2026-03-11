@@ -216,7 +216,7 @@ function About() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[1.05rem] font-mono text-gray-500 uppercase tracking-widest mb-8 whitespace-nowrap max-[420px]:text-[2.25rem] md:mb-[-275px]"
+                        className="text-base font-mono text-gray-500 uppercase tracking-widest mb-8 whitespace-nowrap md:mb-[-275px]"
                     >
                         // selected work
                     </motion.h2>

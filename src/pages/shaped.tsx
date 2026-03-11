@@ -209,7 +209,7 @@ export default function Shaped() {
                             style={{ animationDelay: `${0.25 + i * 0.1}s`, animationFillMode: "forwards" }}
                         >
                             <div
-                                className="shaped-card h-full bg-[#0d0d0d] border border-[#1e1e1e] p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+                                className="shaped-card h-full bg-[#0d0d0d] border border-gray-800 p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
                                 style={{ "--card-rotation": `${item.rotation}deg` } as React.CSSProperties}
                             >
                                 {item.media && <CardMedia media={item.media} mediaType={item.mediaType} title={item.title} />}
@@ -233,7 +233,7 @@ export default function Shaped() {
                             style={{ animationDelay: `${0.5 + i * 0.1}s`, animationFillMode: "forwards" }}
                         >
                             <div
-                                className="shaped-card h-full bg-[#0d0d0d] border border-[#1e1e1e] p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+                                className="shaped-card h-full bg-[#0d0d0d] border border-gray-800 p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
                                 style={{ "--card-rotation": `${item.rotation}deg` } as React.CSSProperties}
                             >
                                 {item.media && <CardMedia media={item.media} mediaType={item.mediaType} title={item.title} />}
@@ -259,7 +259,7 @@ export default function Shaped() {
                             style={{ animationDelay: `${0.8 + i * 0.1}s`, animationFillMode: "forwards" }}
                         >
                             <div
-                                className="shaped-card h-full bg-[#0d0d0d] border border-[#1e1e1e] p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
+                                className="shaped-card h-full bg-[#0d0d0d] border border-gray-800 p-5 md:p-6 rounded-md shadow-[0_2px_16px_rgba(0,0,0,0.5)]"
                                 style={{ "--card-rotation": `${item.rotation}deg` } as React.CSSProperties}
                             >
                                 {item.media && <CardMedia media={item.media} mediaType={item.mediaType} title={item.title} />}
@@ -279,7 +279,7 @@ export default function Shaped() {
                 </div>
 
                 {/* ── Anime Terminal Log ── */}
-                <div className="relative z-[1] font-sfmono text-xs md:text-sm bg-[#0a0a0a]/60 border border-[#232323] rounded-lg p-4 mt-12 mb-4 max-w-4xl mx-auto shadow-[0_2px_16px_rgba(0,0,0,0.3)]">
+                <div className="relative z-[1] font-sfmono text-xs md:text-sm bg-[#0a0a0a]/60 border border-gray-800 rounded-lg p-4 mt-12 mb-4 max-w-4xl mx-auto shadow-[0_2px_16px_rgba(0,0,0,0.3)]">
                     <div className="flex items-center gap-2 mb-2">
                         <span className="w-2 h-2 rounded-full bg-[#FF5F57]" />
                         <span className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
@@ -287,7 +287,7 @@ export default function Shaped() {
                         <span className="ml-3 text-gray-400 font-sfmono text-xs">manthan@anime ~ % completed-anime-list</span>
                         <span className="inline-block w-[10px] ml-1 animate-blink text-white">▋</span>
                     </div>
-                    <div className="border-t border-[#232323] mb-2" />
+                    <div className="border-t border-gray-800 mb-2" />
                     <div className="pl-4 grid grid-cols-1 md:grid-cols-2 gap-x-12">
                         <div>
                             <span className="text-gray-500">$</span> Anime Series (Top 10)
