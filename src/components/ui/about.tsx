@@ -219,7 +219,7 @@ function About() {
                                     <p className="text-gray-500 text-sm font-sfmono">get in touch</p>
                                     <div className="flex gap-3">
                                         <a
-                                            href="https://linkedin.com/in/manthan"
+                                            href="https://www.linkedin.com/in/manthan-p-6457b3313"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-400 hover:text-white transition-colors duration-300"
@@ -230,7 +230,7 @@ function About() {
                                             </svg>
                                         </a>
                                         <a
-                                            href="https://x.com/manthan"
+                                            href="https://x.com/manthan_spryzen"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-400 hover:text-white transition-colors duration-300"
