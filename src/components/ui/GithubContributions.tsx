@@ -249,7 +249,7 @@ const GithubContributions = () => {
                                     {week.days.map((day, dayIndex) => (
                                         <div
                                             key={dayIndex}
-                                            className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-[1px] sm:rounded-[2px] transition-all duration-200 hover:ring-1 hover:ring-gray-400 cursor-pointer"
+                                            className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-none transition-all duration-200 hover:ring-1 hover:ring-gray-400 cursor-pointer"
                                             style={{
                                                 backgroundColor: getColorForLevel(day.level),
                                             }}
@@ -268,7 +268,7 @@ const GithubContributions = () => {
                             {[0, 1, 2, 3, 4].map((level) => (
                                 <div
                                     key={level}
-                                    className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-[1px] sm:rounded-[2px]"
+                                    className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-none"
                                     style={{
                                         backgroundColor: getColorForLevel(level),
                                     }}

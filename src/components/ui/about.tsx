@@ -6,21 +6,48 @@ import type { Variants } from "framer-motion";
 
 // --- HELPERS ---
 
-function ExperienceCard({ role, company, period, desc }: { role: string, company: string, period: string, desc: string }) {
+// Terminal-style Experience Section
+function TerminalExperience() {
+    const experiences = [
+        {
+            company: "AICommunity IITB",
+            period: "2025 - NOW",
+            role: "Junior Developer",
+            desc: "Working with a small team of 8 members to build AI products for insti and freelance projects. Focusing on NLP pipelines and generative models."
+        },
+        {
+            company: "Techfest",
+            period: "2025 - 2026",
+            role: "Graphic Designer",
+            desc: "Supported the design team with social media graphics, print materials, and visual identity systems for Asia's largest Science and Technology festival."
+        }
+    ];
+
     return (
-        <div className="group relative p-6  bg-white/5 border border-white/5 hover:border-white/20 transition-all duration-300">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                <h3 className="text-xl font-semibold text-white group-hover:text-[#fde047] transition-colors">
-                    {company}
-                </h3>
-                <span className="text-xs font-mono text-gray-500 bg-white/5 px-2 py-1 rounded">
-                    {period}
-                </span>
+        <div className="bg-[#111111] rounded-md p-5 font-mono text-[15px] text-gray-200 border border-white/5 max-w-2xl mx-auto">
+            <div className="mb-4 flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded bg-gray-700 inline-block"></span>
+                <span className="h-2.5 w-2.5 rounded bg-gray-700 inline-block"></span>
+                <span className="h-2.5 w-2.5 rounded bg-gray-700 inline-block"></span>
+                <span className="ml-3 text-gray-500 text-xs">manthan@portfolio:~$</span>
             </div>
-            <p className="text-sm font-medium text-gray-300 mb-2">{role}</p>
-            <p className="text-sm text-gray-500 leading-relaxed max-w-2xl">
-                {desc}
-            </p>
+            <div className="space-y-6">
+                {experiences.map((exp, idx) => (
+                    <div key={exp.company}>
+                        <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-gray-400">$</span>
+                            <span className="text-gray-300">cat</span>
+                            <span className="text-gray-500">./experience/{exp.company.replace(/\s/g, '').toLowerCase()}</span>
+                            <span className="text-gray-600 ml-2 text-xs">[{exp.period}]</span>
+                        </div>
+                        <div className="pl-6 mt-1">
+                            <span className="text-gray-500">role:</span> <span className="text-gray-200">{exp.role}</span><br />
+                            <span className="text-gray-500">desc:</span> <span className="text-gray-200">{exp.desc}</span>
+                        </div>
+                        {idx !== experiences.length - 1 && <div className="border-b border-white/5 my-4" />}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
@@ -81,6 +108,7 @@ function NavBar() {
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
                     <a href="/#work" onClick={(e) => scrollToSection(e, 'work')} className="hover:text-white transition-colors cursor-pointer">work</a>
+                    <a href="/blogs" className="hover:text-white transition-colors cursor-pointer">blogs</a>
                     <a href="/shaped" className="hover:text-white transition-colors cursor-pointer">~/me</a>
                     <a href="https://drive.google.com/drive/folders/1BJFK9gJ529U1H1FGIO8SsF8avREJUg-r?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
                         resume <span className="text-[10px]">↗</span>
@@ -115,6 +143,14 @@ function NavBar() {
                                 className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
                             >
                                 work
+                            </motion.a>
+                            <motion.a
+                                custom={1}
+                                variants={linkVariants}
+                                href="/blogs"
+                                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
+                            >
+                                blogs
                             </motion.a>
                             <motion.a
                                 custom={2}
@@ -192,7 +228,7 @@ function About() {
                         </motion.div>
                     </div>
 
-                    {/* Detailed Experience Cards */}
+                    {/* Terminal-style Experience Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -202,10 +238,7 @@ function About() {
                         <h2 className="text-base font-mono text-gray-500 mb-12 uppercase tracking-widest">
                             // Deep Dive: Experience
                         </h2>
-                        <div className="grid gap-3 ">
-                            <ExperienceCard role="Junior Developer" company="AICommunity IITB" period="2025 - NOW" desc="Working with a small team of 8 members to build AI products for insti and freelance projects. Focusing on NLP pipelines and generative models." />
-                            <ExperienceCard role="Graphic Designer" company="Techfest" period="2025 - 2026" desc="Supported the design team with social media graphics, print materials, and visual identity systems for Asia's largest Science and Technology festival." />
-                        </div>
+                        <TerminalExperience />
                     </motion.div>
                 </div>
 
