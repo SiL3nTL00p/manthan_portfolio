@@ -1,3 +1,4 @@
+import { NavBar } from "../components/ui/about";
 
 const BLOGS = [
     {
@@ -12,8 +13,10 @@ const Blogs = () => {
     const sortedBlogs = [...BLOGS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     return (
-        <div className="min-h-screen bg-[#111111] text-white font-sfmono py-24 px-5 md:px-20 max-w-5xl mx-auto">
-            <div className="mb-12">
+        <>
+            <NavBar />
+            <div className="min-h-screen bg-[#111111] text-white font-sfmono py-24 px-5 md:px-20 max-w-5xl mx-auto">
+                <div className="mb-12">
                 <h2 className="text-base text-gray-500 mb-8 uppercase tracking-widest">
                     // blog posts
                 </h2>
@@ -61,8 +64,9 @@ const Blogs = () => {
                         <span className="w-1.5 h-5 bg-green-500/60 animate-pulse"></span>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
