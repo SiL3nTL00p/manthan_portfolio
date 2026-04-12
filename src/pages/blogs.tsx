@@ -1,4 +1,11 @@
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { NavBar } from "../components/ui/about";
+
+const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 const BLOGS = [
     {
@@ -16,11 +23,17 @@ const Blogs = () => {
         <>
             <NavBar />
             <div className="min-h-screen bg-[#111111] text-white font-sfmono py-24 px-5 md:px-20 max-w-5xl mx-auto">
-                <div className="mb-12">
-                <h2 className="text-base text-gray-500 mb-8 uppercase tracking-widest">
-                    // blog posts
-                </h2>
-                <div className="bg-[#111111] rounded-md p-6 border border-white/10 shadow-sm shadow-white/5">
+                <motion.div
+                    className="mb-12"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={fadeInUp}
+                >
+                    <h2 className="text-base text-gray-500 mb-8 uppercase tracking-widest">
+                        // blog posts
+                    </h2>
+                    <div className="bg-[#111111] rounded-md p-6 border border-white/10 shadow-sm shadow-white/5">
                     {/* Terminal Header */}
                     <div className="mb-6 flex items-center gap-2">
                         <span className="h-2.5 w-2.5 rounded bg-red-500/80 inline-block"></span>
@@ -63,8 +76,8 @@ const Blogs = () => {
                         <span>manthan@portfolio:~/blogs$</span>
                         <span className="w-1.5 h-5 bg-green-500/60 animate-pulse"></span>
                     </div>
-                </div>
-                </div>
+                    </div>
+                </motion.div>
             </div>
         </>
     );
