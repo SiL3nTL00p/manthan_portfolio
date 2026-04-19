@@ -54,16 +54,6 @@ function TerminalExperience() {
 
 // --- ANIMATION VARIANTS ---
 
-const fadeInUp: Variants = {
-    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
-    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const staggerContainer: Variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-};
-
 const menuVariants: Variants = {
     closed: { opacity: 0, y: -100 },
     open: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } }
@@ -179,7 +169,109 @@ function NavBar() {
 
 // --- MAIN COMPONENT ---
 
+type TypeChunk = {
+    text: string;
+    className?: string;
+};
+
+type TypeSegment = {
+    className: string;
+    chunks: TypeChunk[];
+};
+
+function typedLength(chunks: TypeChunk[]) {
+    return chunks.reduce((sum, chunk) => sum + chunk.text.length, 0);
+}
+
+function renderTypedChunks(chunks: TypeChunk[], visibleChars: number) {
+    let remaining = visibleChars;
+
+    return chunks.map((chunk, idx) => {
+        const count = Math.max(0, Math.min(remaining, chunk.text.length));
+        const value = chunk.text.slice(0, count);
+        remaining -= count;
+
+        return (
+            <span key={`${chunk.text.slice(0, 10)}-${idx}`} className={chunk.className}>
+                {value}
+            </span>
+        );
+    });
+}
+
 function About() {
+    const command = "./boot_trajectory.sh";
+
+    const trajectorySegments: TypeSegment[] = [
+        {
+            className: "text-3xl md:text-4xl font-bold tracking-tight text-white",
+            chunks: [{ text: "The Trajectory" }]
+        },
+        {
+            className: "text-[15px] md:text-[16px] text-gray-400 leading-relaxed",
+            chunks: [
+                { text: "I synthesize " },
+                { text: "machine learning theory", className: "text-white" },
+                { text: " with practical engineering, solving complex puzzles through the lens of a student-builder." }
+            ]
+        },
+        {
+            className: "text-[15px] md:text-[16px] text-gray-400 leading-relaxed",
+            chunks: [
+                { text: "My work tracks an evolution from first principles to deployed code. I am driven by the " },
+                { text: "quantification of reality", className: "text-white" },
+                { text: ", architecting systems that transcend cognitive limits." }
+            ]
+        },
+        {
+            className: "text-[15px] md:text-[16px] text-gray-400 leading-relaxed",
+            chunks: [
+                { text: "My current obsession? " },
+                { text: "Hacking biology with code.", className: "text-white" },
+                { text: " I'm driven by the math behind living systems and building AI that can understand health data better than we can. It's about quantifying reality to architect systems that transcend cognitive limits." }
+            ]
+        },
+        {
+            className: "pt-4 text-gray-500 text-right",
+            chunks: [{ text: "- manthan" }]
+        },
+    ];
+
+    const segmentLengths = trajectorySegments.map((segment) => typedLength(segment.chunks));
+    const pauseUnits = 10;
+    const totalUnits = command.length + segmentLengths.reduce((sum, len) => sum + len, 0) + pauseUnits * trajectorySegments.length;
+    const [typedUnits, setTypedUnits] = useState(0);
+
+    useEffect(() => {
+        setTypedUnits(0);
+
+        const timer = setInterval(() => {
+            setTypedUnits((prev) => {
+                if (prev >= totalUnits) {
+                    clearInterval(timer);
+                    return prev;
+                }
+                return prev + 1;
+            });
+        }, 18);
+
+        return () => clearInterval(timer);
+    }, [totalUnits]);
+
+    const commandVisible = Math.max(0, Math.min(typedUnits, command.length));
+    const cursorActive = typedUnits < totalUnits;
+
+    const getVisibleCharsForSegment = (segmentIndex: number) => {
+        let offset = command.length;
+
+        for (let i = 0; i < segmentIndex; i += 1) {
+            offset += segmentLengths[i] + pauseUnits;
+        }
+
+        const visible = typedUnits - offset;
+        return Math.max(0, Math.min(visible, segmentLengths[segmentIndex]));
+    };
+
     return (
         <div id="about" className="min-h-screen bg-[#111111]">
 
@@ -188,62 +280,24 @@ function About() {
                 <div className="w-full px-5 max-w-5xl mx-auto">
                     {/* Trajectory Section */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start mb-32">
-                        <motion.div
-                            variants={staggerContainer}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="space-y-8"
-                        >
-                            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-                                The Trajectory
-                            </motion.h2>
-                            <motion.div variants={fadeInUp} className="space-y-6 text-[15px] md:text-[16px] text-gray-400 leading-relaxed">
-                                <p>
-                                    I synthesize <span className="text-white">machine learning theory</span> with practical engineering, solving complex puzzles through the lens of a student-builder.
-                                </p>
-                                <p>
-                                    My work tracks an evolution from first principles to deployed code. I am driven by the <span className="text-white">quantification of reality</span>, architecting systems that transcend cognitive limits.
-                                </p>
-                                <p>
-                                    My current obsession?<span className="text-white"> Hacking biology with code.</span> I’m driven by the math behind living systems and building AI that can understand health data better than we can. It's about quantifying reality to architect systems that transcend cognitive limits.
-                                </p>
-                                {/* THE SIGNATURE */}
-                                <p className="pt-4 text-gray-500 text-right">
-                                    — <span className="font-sfmono text-gray-500 text-lg">manthan</span> <br />
-                                    <span className="font-sfmono text-gray-500 text-base mt-2 block">Sophomore @ IIT Bombay</span>
-                                </p>
+                        <div className="space-y-8">
+                            <div className="font-mono text-sm text-zinc-500 flex items-center gap-2" aria-live="polite">
+                                <span className="text-zinc-600">manthan@portfolio:~$</span>
+                                <span className="text-zinc-400">{command.slice(0, commandVisible)}</span>
+                                {cursorActive && <span className="inline-block h-4 w-2 bg-zinc-400 animate-pulse align-middle" />}
+                            </div>
 
-                                {/* GET IN TOUCH SECTION */}
-                                <div className="mt-8 flex justify-end items-center gap-3">
-                                    <p className="text-gray-500 text-sm font-sfmono">get in touch</p>
-                                    <div className="flex gap-3">
-                                        <a
-                                            href="https://www.linkedin.com/in/manthan-p-6457b3313"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-gray-400 hover:text-white transition-colors duration-300"
-                                            title="LinkedIn"
-                                        >
-                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
-                                            </svg>
-                                        </a>
-                                        <a
-                                            href="https://x.com/manthan_spryzen"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-gray-400 hover:text-white transition-colors duration-300"
-                                            title="X"
-                                        >
-                                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.6l-5.165-6.754L2.88 21.75H-2.328l7.732-8.835L-1.537 2.25h6.749l4.946 6.278L18.244 2.25zM17.41 19.97h1.835L5.293 4.028H3.382L17.41 19.97z"/>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </motion.div>
+                            <div className="space-y-6">
+                                {trajectorySegments.map((segment, idx) => {
+                                    const visibleChars = getVisibleCharsForSegment(idx);
+                                    return (
+                                        <p key={idx} className={segment.className}>
+                                            {renderTypedChunks(segment.chunks, visibleChars)}
+                                        </p>
+                                    );
+                                })}
+                            </div>
+                        </div>
 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}

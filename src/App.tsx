@@ -1,11 +1,54 @@
 "use client"
 
+import { useEffect } from "react"
 
 import { ProjectsGrid } from "./components/ui/Projects2"
 import { About, NavBar } from "./components/ui/about"
 import GithubContributions from "./components/ui/GithubContributions"
 
 function App() {
+  useEffect(() => {
+    const scrollToWorkFromHash = () => {
+      if (window.location.hash !== "#work") return;
+
+      const navEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+      const isReload = navEntry?.type === "reload";
+
+      if (isReload) {
+        const cleanUrl = `${window.location.pathname}${window.location.search}`;
+        window.history.replaceState(null, "", cleanUrl);
+        window.scrollTo({ top: 0, behavior: "auto" });
+        return;
+      }
+
+      let attempts = 0;
+      const maxAttempts = 30;
+
+      const timer = setInterval(() => {
+        const workSection = document.getElementById("work");
+        if (workSection) {
+          workSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          clearInterval(timer);
+          return;
+        }
+
+        attempts += 1;
+        if (attempts >= maxAttempts) {
+          clearInterval(timer);
+        }
+      }, 80);
+
+      return timer;
+    };
+
+    const activeTimer = scrollToWorkFromHash();
+    window.addEventListener("hashchange", scrollToWorkFromHash);
+
+    return () => {
+      if (activeTimer) clearInterval(activeTimer);
+      window.removeEventListener("hashchange", scrollToWorkFromHash);
+    };
+  }, []);
 
 
   return (

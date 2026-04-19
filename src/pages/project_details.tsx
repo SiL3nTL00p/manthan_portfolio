@@ -20,6 +20,12 @@ function NavBar() {
     };
   }, [isOpen]);
 
+  const goToWorkSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    window.location.href = "/#work";
+  };
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3 md:px-6 md:py-4 bg-[#111111] border-b border-white/5 transition-all duration-300">
@@ -30,8 +36,12 @@ function NavBar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-sm font-sfmono text-gray-400">
-          <a href="/#work" className="hover:text-white transition-colors cursor-pointer">
+          <a href="/#work" onClick={goToWorkSection} className="hover:text-white transition-colors cursor-pointer">
             work
+          </a>
+
+          <a href="/blogs" className="hover:text-white transition-colors cursor-pointer">
+            blogs
           </a>
 
           <Link to="/shaped" className="hover:text-white transition-colors">
@@ -72,10 +82,19 @@ function NavBar() {
                 custom={0}
                 variants={linkVariants}
                 href="/#work"
+                onClick={goToWorkSection}
+                className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
+              >
+                work
+              </motion.a>
+              <motion.a
+                custom={1}
+                variants={linkVariants}
+                href="/blogs"
                 className="text-xl font-semibold text-gray-500 tracking-tight font-sfmono"
                 onClick={() => setIsOpen(false)}
               >
-                work
+                blogs
               </motion.a>
               <motion.a
                 custom={2}

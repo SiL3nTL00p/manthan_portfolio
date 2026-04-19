@@ -19,43 +19,40 @@ if (import.meta.env.PROD) {
   console.warn = noop;
 }
 
-function Loading() {
-  const [dotCount, setDotCount] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDotCount((count) => (count + 1) % 4); // cycles 0...3 dots
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, []);
-
+function Loading({ exiting }: { exiting: boolean }) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-100 z-50">
-      <span
-        className="text-white text-xl font-mono select-none"
-        style={{
-          fontFamily:
-            '"SF Mono", "Space Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace',
-        }}
-        aria-live="polite"
-      >
-        Loading{'.'.repeat(dotCount)}
-      </span>
+    <div
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-[#111] transition-opacity duration-300 ${exiting ? "opacity-0" : "opacity-100"
+        }`}
+    >
+      <div className="font-mono text-sm text-zinc-400 select-none" aria-live="polite">
+        <span className="text-zinc-600">manthan@portfolio:~$</span>{" "}
+        ./boot.sh
+        <span
+          className="ml-1 inline-block h-4 w-2 align-middle bg-zinc-400 animate-pulse"
+          style={{ animationDuration: "1.1s" }}
+        />
+      </div>
     </div>
   );
 }
 
 function Root() {
   const [loading, setLoading] = useState(true);
+  const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000); // reduced to 1 second
-    return () => clearTimeout(timer);
+    const startExitTimer = setTimeout(() => setExiting(true), 800);
+    const doneTimer = setTimeout(() => setLoading(false), 1100);
+
+    return () => {
+      clearTimeout(startExitTimer);
+      clearTimeout(doneTimer);
+    };
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return <Loading exiting={exiting} />;
   }
 
   return (
