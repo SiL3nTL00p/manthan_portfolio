@@ -8,3 +8,12 @@
   }
 }
 
+@layer components {
+  .dot-grid {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+    background-size: 18px 18px;
+    background-position: 0 0;
+  }
+}
+

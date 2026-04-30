@@ -72,12 +72,22 @@ function App() {
         </div>
 
         {/* Footer */}
-        <div className="z-15 mt-10">
-          <footer className=" flex flex-col items-center body bg-[#1C1C1C] dot-grid z-[1] w-full sticky bottom-0 text-zinc-100 font-sfmono">
-            <section className="w-full grid grid-cols-12 grid-gap relative z-10 max-w-8xl pb-4 pt-4 px-4 gap-y-8">
-              <div className="flex-col align-center space-y-2 col-start-1 col-end-13 caption md:col-start-1 md:col-end-6">
-                <span className="flex flex-row space-x-2 align-middle">
-                  <p className=" text-sm self-center px-2 pt-1 pb-[2px] mono uppercase text-zinc-600">Last updated 12/04/2026</p>
+        <div className="z-15 mt-12">
+          <footer className="flex flex-col items-center body bg-[#1C1C1C] dot-grid z-[1] w-full sticky bottom-0 text-zinc-100 font-sfmono">
+            <section className="w-full max-w-8xl relative z-10 pb-6 pt-6 px-3" style={{ opacity: 1 }}>
+              <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 font-sfmono text-[14px] leading-none">
+                <span className="flex flex-row items-center gap-2">
+                  <p className="self-center w-min px-2 pt-1 pb-[2px] font-sfmono lowercase text-zinc-400 border-zinc-400 border border-solid rounded-full">v5.0.0</p>
+                  <p className="self-center px-2 pt-1 pb-[2px] font-sfmono uppercase text-zinc-500">Last updated 2025-05-01{/* --> */} </p>
+                </span>
+                <span className="ml-auto flex flex-row flex-wrap items-center justify-end gap-x-4 gap-y-2 text-right">
+                  <span className="inline-flex items-center gap-1 text-zinc-500 transition-colors hover:text-white">
+                    <a className="cursor-pointer border-b border-dotted border-transparent px-[2px] pt-[2px] transition-colors hover:border-current" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/manthan-p-6457b3313">Linkedin</a><sup className="font-sfmono leading-[0] text-[12px] font-light text-current">↗</sup>
+                  </span>
+                  
+                  <span className="inline-flex items-center gap-1 text-zinc-500 transition-colors hover:text-white">
+                    <a className="cursor-pointer border-b border-dotted border-transparent px-[2px] pt-[2px] transition-colors hover:border-current" target="_blank" rel="noreferrer" href="https://x.com/null_rejected">Twitter</a><sup className="font-sfmono leading-[0] text-[12px] font-light text-current">↗</sup>
+                  </span>
                 </span>
               </div>
             </section>
