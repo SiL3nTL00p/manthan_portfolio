@@ -232,7 +232,7 @@ const GithubContributions = () => {
                     {/* Grid with day labels */}
                     <div className="flex gap-0">
                         {/* Day labels */}
-                        <div className="flex flex-col gap-0.5 sm:gap-1 mr-1 sm:mr-3 mt-6 sm:mt-8">
+                        <div className="flex flex-col gap-[1px] sm:gap-[2px] mr-1 sm:mr-3 mt-6 sm:mt-8">
                             <div className="text-[9px] sm:text-[11px] text-gray-500 font-sfmono h-[10px] sm:h-[12px]"></div>
                             <div className="text-[9px] sm:text-[11px] text-gray-500 font-sfmono h-[10px] sm:h-[12px] leading-[10px] sm:leading-[12px]">Mon</div>
                             <div className="text-[9px] sm:text-[11px] text-gray-500 font-sfmono h-[10px] sm:h-[12px]"></div>
@@ -243,13 +243,13 @@ const GithubContributions = () => {
                         </div>
 
                         {/* Contribution squares */}
-                        <div className="flex gap-0.5 sm:gap-1 mt-6 sm:mt-8">
+                        <div className="flex gap-[1.25px] sm:gap-[2.5px] mt-6 sm:mt-8">
                             {contributionData.map((week, weekIndex) => (
-                                <div key={weekIndex} className="flex flex-col gap-0.5 sm:gap-1">
+                                <div key={weekIndex} className="flex flex-col gap-[1.25px] sm:gap-[2.5px]">
                                     {week.days.map((day, dayIndex) => (
                                         <div
                                             key={dayIndex}
-                                            className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-none transition-all duration-200 hover:ring-1 hover:ring-gray-400 cursor-pointer"
+                                            className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-[2.5px] transition-all duration-200 hover:ring-1 hover:ring-gray-400 cursor-pointer"
                                             style={{
                                                 backgroundColor: getColorForLevel(day.level),
                                             }}
@@ -264,11 +264,11 @@ const GithubContributions = () => {
                     {/* Legend */}
                     <div className="flex items-center justify-end gap-1 sm:gap-2 mt-4 sm:mt-6 px-1">
                         <span className="text-[9px] sm:text-xs text-gray-500 font-sfmono">Less</span>
-                        <div className="flex gap-0.5 sm:gap-1">
+                        <div className="flex gap-[1.25px] sm:gap-[2.5px]">
                             {[0, 1, 2, 3, 4].map((level) => (
                                 <div
                                     key={level}
-                                    className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-none"
+                                    className="w-[9px] h-[9px] sm:w-[12px] sm:h-[12px] rounded-[2.5px]"
                                     style={{
                                         backgroundColor: getColorForLevel(level),
                                     }}
