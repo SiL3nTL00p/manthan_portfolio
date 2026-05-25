@@ -9,10 +9,10 @@ const fadeInUp: Variants = {
 
 const BLOGS = [
     {
-        slug: "redis-as-a-beginner",
-        title: "Redis: As a beginner",
+        slug: "the-boy-who-wouldnt-shut-up",
+        title: "The Boy Who Wouldn't Shut Up",
         date: "2025-09-24",
-        url: "https://medium.com/@manthan/redis-beginner"
+        url: "https://medium.com/@pattedamanthan/the-boy-who-wouldnt-shut-up-15f1eb4406f5"
     }
 ];
 
